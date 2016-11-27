@@ -92,9 +92,9 @@ public class Menu extends JFrame implements ActionListener
         }
         if (zrodlo==opcje)
         {
-            Icon auto1 = new ImageIcon("auto1.jpg");
-            Icon auto2 = new ImageIcon("auto2.jpeg");
-            Icon auto3 = new ImageIcon("auto3.jpeg");
+            Icon auto1 = new ImageIcon(getClass().getClassLoader().getResource("auto1.jpeg"));
+            Icon auto2 = new ImageIcon(getClass().getClassLoader().getResource("auto2.jpeg"));
+            Icon auto3 = new ImageIcon(getClass().getClassLoader().getResource("auto3.jpeg"));
             Object tablicaObrazowAut[] = {auto1 ,auto2, auto3};
 
             int resultvalue = JOptionPane.showOptionDialog(this, "Wybierz samochód którym chcesz jechać?", "Opcje",
