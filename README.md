@@ -1,0 +1,2 @@
+# SciezkaGra
+Gra ścieżka
