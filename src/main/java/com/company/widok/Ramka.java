@@ -1,7 +1,14 @@
 package com.company.widok;
 
+import com.company.PropertiesReader;
+import org.xml.sax.SAXException;
+
 import javax.swing.*;
+import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
+import java.io.IOException;
+
+import static com.company.PropertiesReader.getPropertyValue;
 
 /**
  * Created by kasia on 27.11.16.
@@ -14,6 +21,7 @@ public class Ramka extends JFrame {
     private ImageIcon _pauseIcon;
     private ImageIcon _stopIcon;
     private ImageIcon _highScoresIcon;
+    private static int nroflifes;
 
     private ImageIcon setIcon(String imageName){
         return new ImageIcon(getClass().getClassLoader().getResource(imageName));
@@ -47,9 +55,14 @@ public class Ramka extends JFrame {
 System.out.println("jestem");
         setVisible(true);
 
-        JPanel GamePlansza = new JPanel();
+        Plansza GamePlansza = new Plansza();
         add(toolbar, BorderLayout.NORTH);
         add(GamePlansza);
+        //nroflifes = Integer.getInteger(PropertiesReader.getPropertyValue("life"));
+
+        // czytanie z pliku
+        //getPropertyValue("life");
+
 
     }
 }
