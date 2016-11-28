@@ -61,6 +61,8 @@ public class Menu extends JFrame implements ActionListener
                         "Poziom Trudnosci", JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
                 System.out.println(selection);
             }
+            this.setVisible(false);
+            Ramka ramka = new Ramka();
 
         }
         if (zrodlo==wyjscie)
