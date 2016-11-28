@@ -17,6 +17,6 @@ public class AppTest {
         String speed = pReader.getPropertyValue("speed");
         assertEquals("30",speed);
        String doopa = pReader.getPropertyValue("doopa");
-//        assertNull(doopa);
+        assertNull(doopa);
     }
 }
