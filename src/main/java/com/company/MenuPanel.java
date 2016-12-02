@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuPanel extends JPanel implements ActionListener {
+public class MenuPanel extends JPanel {
     JButton start = ButtonFactory.createJButtonWithName("Start");
     JButton scianaChwaly = ButtonFactory.createJButtonWithName("ScianaChwaly");
     JButton reguly = ButtonFactory.createJButtonWithName("Reguly");
@@ -17,29 +17,21 @@ public class MenuPanel extends JPanel implements ActionListener {
 
     public MenuPanel() {
 
-        super(new SpringLayout());
-        add(start);
-        add(scianaChwaly);
-        add(reguly);
-        add(opcje);
-        add(wyjscie);
-        SpringUtilities.makeGrid(this, 5, 1, 5, 5, 5, 5);
-
+        super();
+        JPanel mainMenuPanel = new JPanel(new SpringLayout());
+        mainMenuPanel.add(start);
+        mainMenuPanel.add(scianaChwaly);
+        mainMenuPanel.add(reguly);
+        mainMenuPanel.add(opcje);
+        mainMenuPanel.add(wyjscie);
+        SpringUtilities.makeGrid(mainMenuPanel, 5, 1, 5, 5, 5, 5);
+        add(mainMenuPanel);
 
         wyjscie.addActionListener(e -> Game.getGame().dispose());
         start.addActionListener(e -> Game.getGame().setCurrentActivePanel(new PreGamePanel()));
-        opcje.addActionListener(this);
+        opcje.addActionListener(e -> new CarChoicePanel());
         reguly.addActionListener(e -> Game.getGame().setCurrentActivePanel(new ZasadyGry()));
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object zrodlo = e.getSource();
-        if (zrodlo == opcje) {
-            CarChoicePanel options = new CarChoicePanel();
-        }
-    }
-
 
     public static void main(String[] args) {
         Game appMenu = Game.getGame();
