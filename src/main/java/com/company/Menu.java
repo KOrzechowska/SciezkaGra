@@ -1,86 +1,77 @@
 package com.company;
 
+import com.company.Util.SpringUtilities;
 import com.company.przyklady.ZasadyGry;
+import com.company.widok.ButtonFactory;
 import com.company.widok.Ramka;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by mrgrinch on 12.11.16.
- */
-public class Menu extends JFrame implements ActionListener
-{
-    JButton wyjscie,start, reguly, scianachwaly, opcje;
+public class Menu extends JFrame implements ActionListener {
+    JButton start = ButtonFactory.createJButtonWithName("Start");
+    JButton scianaChwaly = ButtonFactory.createJButtonWithName("ScianaChwaly");
+    JButton reguly = ButtonFactory.createJButtonWithName("Reguly");
+    JButton wyjscie = ButtonFactory.createJButtonWithName("Wyjscie");
+    JButton opcje = ButtonFactory.createJButtonWithName("Opcje");
 
-    public Menu()
-    {
+    public Menu() {
         setTitle("Sciezka");
-        setSize(500,500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//zamykamy aplikacje gry klikniemy na przycisk
+        //setSize(500, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(null);
-        start = new JButton("Start");
-        scianachwaly = new JButton("ScianaChwaly");
-        reguly =new JButton("Reguly");
-        wyjscie= new JButton("Wyjscie");
-        opcje= new JButton("Opcje");
-        start.setBounds(150,100,200,50);
-        scianachwaly.setBounds(150,150,200,50);
-        reguly.setBounds(150,200,200,50);
-        opcje.setBounds(150,250,200,50);
-        wyjscie.setBounds(150,300,200,50);
+        JPanel menuPanel = new JPanel(new SpringLayout());
+        menuPanel.add(start);
+        menuPanel.add(scianaChwaly);
+        menuPanel.add(reguly);
+        menuPanel.add(opcje);
+        menuPanel.add(wyjscie);
+        SpringUtilities.makeGrid(menuPanel,5,1,5,5,5,5);
+
+        add(menuPanel);
+
         wyjscie.addActionListener(this);
         start.addActionListener(this);
         opcje.addActionListener(this);
         reguly.addActionListener(this);
-        add(start);
-        add(scianachwaly);
-        add(reguly);
-        add(opcje);
-        add(wyjscie);
     }
+
     @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        Object zrodlo= e.getSource();
-        if (zrodlo== start)
-        {
-            Object result = JOptionPane.showInputDialog(this,"Podaj Nick :");
+    public void actionPerformed(ActionEvent e) {
+        Object zrodlo = e.getSource();
+        if (zrodlo == start) {
+            Object result = JOptionPane.showInputDialog(this, "Podaj Nick :");
             System.out.println("start" + result);
-            if(result!=null)
-            {
+            if (result != null) {
                 JDialog.setDefaultLookAndFeelDecorated(true);
-                Object[] selectionValues = { "Latwy", "Sredni", "Trudny" };
-                String initialSelection = "Latwy";
+                Object[] avalibleDifficulties = {"Latwy", "Sredni", "Trudny"};
+                Object initialDifficultySelection = avalibleDifficulties[0];
                 Object selection = JOptionPane.showInputDialog(this, "Wybierz poziom trudnosci :",
-                        "Poziom Trudnosci", JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
+                        "Poziom Trudnosci", JOptionPane.QUESTION_MESSAGE, null, avalibleDifficulties, initialDifficultySelection);
                 System.out.println(selection);
             }
             this.setVisible(false);
             Ramka ramka = new Ramka();
 
         }
-        if (zrodlo==wyjscie)
-        {
+        if (zrodlo == wyjscie) {
             dispose();
         }
       /*  if else(zrodlo==scianachwaly)
         {
 
        */
-        if(zrodlo==reguly)
-        {
+        if (zrodlo == reguly) {
 
-            ZasadyGry zGry= new ZasadyGry();
+            ZasadyGry zGry = new ZasadyGry();
         }
-        if (zrodlo==opcje)
-        {
+        if (zrodlo == opcje) {
             Icon auto1 = new ImageIcon(getClass().getClassLoader().getResource("auto1.jpeg"));
             Icon auto2 = new ImageIcon(getClass().getClassLoader().getResource("auto2.jpeg"));
             Icon auto3 = new ImageIcon(getClass().getClassLoader().getResource("auto3.jpeg"));
-            Object tablicaObrazowAut[] = {auto1 ,auto2, auto3};
+            Object tablicaObrazowAut[] = {auto1, auto2, auto3};
 
             int resultvalue = JOptionPane.showOptionDialog(this, "Wybierz samochód którym chcesz jechać?", "Opcje",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, tablicaObrazowAut, tablicaObrazowAut[0]);
@@ -89,9 +80,8 @@ public class Menu extends JFrame implements ActionListener
     }
 
 
-    public static void main(String[] args)
-    {
-        Menu appMenu=new Menu();
+    public static void main(String[] args) {
+        Menu appMenu = new Menu();
         appMenu.setVisible(true);
     }
 }
