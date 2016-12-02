@@ -1,14 +1,11 @@
 package com.company;
 
 import com.company.przyklady.ZasadyGry;
+import com.company.widok.Ramka;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.Scanner;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 
 /**
  * Created by mrgrinch on 12.11.16.

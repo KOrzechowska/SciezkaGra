@@ -1,6 +1,6 @@
 package orzechowski.piotr;
 
-import com.company.PropertiesUtil.PropertiesReader;
+import com.company.Util.PropertiesReader;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -18,5 +18,7 @@ public class AppTest {
         assertEquals("30",speed);
        String doopa = pReader.getPropertyValue("doopa");
         assertNull(doopa);
+        int speedInt = pReader.getPropertyValueInt("speed");
+        assertEquals(30,speedInt);
     }
 }

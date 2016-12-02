@@ -1,44 +1,28 @@
 package com.company.widok;
 
-import com.company.PropertiesReader;
+import com.company.Util.ImageUtil;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by kasia on 28.11.16.
- */
-public class Plansza extends JPanel{
 
-    /** ustawienie rozmiaru czcionki */
+public class Plansza extends JPanel {
+
     private final Font smallfont = new Font("Helvetica", Font.BOLD, 14);
-    /** obiekt klasy BufferedImage */
-    private BufferedImage heart, bomb;
-    private BufferedImage setIcon(String imageName){
-        try {
-            return ImageIO.read(getClass().getClassLoader().getResource(imageName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    private final int scrsize = 6 * 50;
-    /**zmienna do której przypisujemy akltualny szerokoæ okna*/
-    private int w;
-    /**zmienna do której przypisujemy akltualny wysokoæ okna*/
-    private int h;
-    /**skala dla szerokoci*/
-    float skala_w ;
-    /**skala dla wysokoci*/
-    float skala_h;
+    private BufferedImage heartImage, bombImage;
 
-    public Plansza(){
+    private final int screenSize = 6 * 50;
+    private int width;
+    private int height;
+    private float width_scale;
+    private float height_scale;
+
+    public Plansza() {
         super();
-        heart = (BufferedImage) setIcon("serce1.jpg");
+        heartImage = ImageUtil.setIcon("serce1.jpg");
 
         JPanel box = new JPanel();
         JPanel all = new JPanel();
@@ -52,14 +36,12 @@ public class Plansza extends JPanel{
         this.setBackground(Color.gray);
     }
 
-    public void paint(Graphics g)
-    {
+    public void paint(Graphics g) {
         super.paint(g);
         drawZycia(g);
     }
 
-    private void drawZycia(Graphics g)
-    {
+    private void drawZycia(Graphics g) {
         int i;
         String s;
         String p;
@@ -68,12 +50,11 @@ public class Plansza extends JPanel{
         s = "Level: 1";// + level;
         p = "Liczba punktow: ";// + bomber.getScore();
         /** rysowanie na ekran liczby punktów i który to poziom */
-        g.drawString(p, (int)(skala_w*scrsize) / 2 + 96, (int)(skala_h*scrsize) + 36);
-        g.drawString(s, (int)(skala_w*scrsize) / 2 + 96, (int)(skala_h*scrsize) + 16);
+        g.drawString(p, (int) (width_scale * screenSize) / 2 + 96, (int) (height_scale * screenSize) + 36);
+        g.drawString(s, (int) (width_scale * screenSize) / 2 + 96, (int) (height_scale * screenSize) + 16);
 
-        for (i = 0; i < 3; i++)
-        {
-            g.drawImage(heart, i * 28 + 8, (int)(skala_h*scrsize) +1, this);
+        for (i = 0; i < 3; i++) {
+            g.drawImage(heartImage, i * 28 + 8, (int) (height_scale * screenSize) + 1, this);
         }
 
     }

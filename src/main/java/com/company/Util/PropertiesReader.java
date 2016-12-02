@@ -1,14 +1,11 @@
-package com.company.PropertiesUtil;
+package com.company.Util;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.net.URL;
 
 public class PropertiesReader {
 
@@ -19,7 +16,6 @@ public class PropertiesReader {
             //Get file from resources folder
             ClassLoader classLoader = PropertiesReader.class.getClassLoader();
             File fXmlFile = new File(classLoader.getResource(Filename).getFile());
-
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -37,6 +33,10 @@ public class PropertiesReader {
         NodeList nList = doc.getElementsByTagName(propertyName);
         String output = (nList.item(0) != null) ? nList.item(0).getTextContent() : null;
         return output;
-
+    }
+    
+    public int getPropertyValueInt(String propertyName) {
+        String returnValue = getPropertyValue(propertyName);
+        return Integer.valueOf(returnValue);
     }
 }
