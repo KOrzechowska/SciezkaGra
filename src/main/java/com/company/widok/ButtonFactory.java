@@ -15,7 +15,6 @@ public class ButtonFactory {
     public static JButton createJButtonWithName(String buttonName)
     {
         JButton gameButton = new JButton(buttonName);
-        gameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         return gameButton;
     }
 

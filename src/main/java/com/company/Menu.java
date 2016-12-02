@@ -4,6 +4,7 @@ import com.company.Util.SpringUtilities;
 import com.company.przyklady.ZasadyGry;
 import com.company.widok.ButtonFactory;
 import com.company.widok.CarChoicePanel;
+import com.company.widok.Game;
 import com.company.widok.Ramka;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu extends JFrame implements ActionListener {
+public class Menu extends JPanel implements ActionListener {
     JButton start = ButtonFactory.createJButtonWithName("Start");
     JButton scianaChwaly = ButtonFactory.createJButtonWithName("ScianaChwaly");
     JButton reguly = ButtonFactory.createJButtonWithName("Reguly");
@@ -19,10 +20,7 @@ public class Menu extends JFrame implements ActionListener {
     JButton opcje = ButtonFactory.createJButtonWithName("Opcje");
 
     public Menu() {
-        setTitle("Sciezka");
-        //setSize(500, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+
         JPanel menuPanel = new JPanel(new SpringLayout());
         menuPanel.add(start);
         menuPanel.add(scianaChwaly);
@@ -58,7 +56,7 @@ public class Menu extends JFrame implements ActionListener {
 
         }
         if (zrodlo == wyjscie) {
-            dispose();
+            Game.getGame().dispose();
         }
       /*  if else(zrodlo==scianachwaly)
         {
@@ -75,7 +73,6 @@ public class Menu extends JFrame implements ActionListener {
 
 
     public static void main(String[] args) {
-        Menu appMenu = new Menu();
-        appMenu.setVisible(true);
+        Game appMenu = Game.getGame();
     }
 }
