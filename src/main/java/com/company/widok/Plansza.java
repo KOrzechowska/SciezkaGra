@@ -1,6 +1,6 @@
 package com.company.widok;
 
-import com.company.Util.ImageUtil;
+import com.company.util.ImageUtil;
 
 import javax.swing.*;
 import java.awt.*;

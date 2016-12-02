@@ -1,13 +1,13 @@
 package com.company.widok;
 
-import com.company.Menu;
+import com.company.MenuPanel;
 
 import javax.swing.*;
 
 public class Game extends JFrame {
     private static Game game = new Game();
 
-    JPanel currentActivePanel=new Menu();
+    private JPanel currentActivePanel=new MenuPanel();
 
     private Game() {
         super();
@@ -22,12 +22,12 @@ public class Game extends JFrame {
         return game;
     }
 
-    public JPanel getCurrentActivePanel() {
-        return currentActivePanel;
-    }
 
     public void setCurrentActivePanel(JPanel currentActivePanel) {
-        this.currentActivePanel = currentActivePanel;
+        getContentPane().removeAll();
+        getContentPane().add(currentActivePanel);
+        validate();
+        setVisible(true);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.company.Util;
+package com.company.util;
 
 
 /*

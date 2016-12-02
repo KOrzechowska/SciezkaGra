@@ -1,6 +1,6 @@
 package orzechowski.piotr;
 
-import com.company.Util.PropertiesReader;
+import com.company.util.PropertiesReader;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
