@@ -2,11 +2,9 @@ package com.company.widok;
 
 import com.company.Util.ImageUtil;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 
 public class Plansza extends JPanel {
@@ -22,7 +20,7 @@ public class Plansza extends JPanel {
 
     public Plansza() {
         super();
-        heartImage = ImageUtil.setIcon("serce1.jpg");
+        heartImage = ImageUtil.getBufferedImageFromFile("serce1.jpg");
 
         JPanel box = new JPanel();
         JPanel all = new JPanel();
