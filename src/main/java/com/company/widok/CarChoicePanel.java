@@ -5,8 +5,7 @@ import com.company.util.ImageUtil;
 import javax.swing.*;
 
 public class CarChoicePanel extends JPanel {
-    public CarChoicePanel()
-    {
+    public CarChoicePanel() {
         Icon auto1 = ImageUtil.getImageIconFromFile("auto1.jpeg");
         Icon auto2 = ImageUtil.getImageIconFromFile("auto2.jpeg");
         Icon auto3 = ImageUtil.getImageIconFromFile("auto3.jpeg");

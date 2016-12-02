@@ -11,8 +11,8 @@ public class ButtonFactory {
         gameButton.setFocusable(false);
         return gameButton;
     }
-    public static JButton createJButtonWithName(String buttonName)
-    {
+
+    public static JButton createJButtonWithName(String buttonName) {
         JButton gameButton = new JButton(buttonName);
         return gameButton;
     }

@@ -3,12 +3,10 @@ package com.company.widok;
 import javax.swing.*;
 import java.awt.*;
 
-public class Ramka extends JFrame {
-    public Ramka() {
-        super("Sciezka");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 500);
-        this.setLayout(new BorderLayout());
+public class PoleGry extends JPanel {
+    public PoleGry() {
+
+        setLayout(new BorderLayout());
 
         final GameToolbar toolbar = new GameToolbar();
 
