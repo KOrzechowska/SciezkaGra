@@ -5,15 +5,17 @@ import com.company.util.ButtonFactory;
 
 import javax.swing.*;
 
-public class GameInfoBar extends JToolBar {
+public class GameInfoBar extends JPanel {
     public GameInfoBar() {
         super();
         addHeart();
         addHeart();
         addHeart();
         JTextArea scoreArea = new JTextArea("Score: "+0);
+        scoreArea.setEditable(false);
         add(scoreArea);
         JTextArea levelNumberArea = new JTextArea("Level: " + Game.getGame().getCourse().getLevelNumber());
+        levelNumberArea.setEditable(false);
         add(levelNumberArea);
     }
 

@@ -10,11 +10,12 @@ public class MainGameField extends JPanel {
         setPreferredSize(new Dimension(500, 500));
 
         final GameInfoBar infoBar = new GameInfoBar();
-
+        final GameToolbar toolbar = new GameToolbar();
         System.out.println("jestem");
         setVisible(true);
 
-        add(infoBar, BorderLayout.NORTH);
+        add(toolbar, BorderLayout.NORTH);
+        add(infoBar, BorderLayout.SOUTH);
         add(new PlayingField());
 
     }

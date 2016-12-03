@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
 <properties>
-<speed>30</speed>
+    <lifes>3</lifes>
+    <speed>30</speed>
 </properties>
