@@ -1,9 +1,9 @@
 package com.company.widok;
 
-import com.company.util.ImageUtil;
+import com.company.Game;
+import com.company.util.ButtonFactory;
 
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 
 public class GameInfoBar extends JToolBar {
     public GameInfoBar() {

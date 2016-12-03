@@ -1,4 +1,4 @@
-package com.company.przyklady;
+package com.company.widok;
 
 import javax.swing.*;
 import java.awt.*;

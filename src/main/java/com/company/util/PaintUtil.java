@@ -1,12 +1,11 @@
 package com.company.util;
 
 import com.company.logic.CourseBlock;
-import com.company.widok.Game;
+import com.company.Game;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
-import java.util.*;
 import java.util.List;
 
 public class PaintUtil {

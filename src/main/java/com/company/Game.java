@@ -1,8 +1,8 @@
-package com.company.widok;
+package com.company;
 
-import com.company.MenuPanel;
 import com.company.logic.Course;
 import com.company.logic.Player;
+import com.company.widok.MenuPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,7 @@ public class Game extends JFrame {
     private Game() {
         super();
         setTitle("Sciezka");
-        setSize(500,500);
+        setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         add(new MenuPanel());
@@ -50,5 +50,9 @@ public class Game extends JFrame {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> Game.getGame());
     }
 }

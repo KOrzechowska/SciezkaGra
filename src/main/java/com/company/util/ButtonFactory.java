@@ -1,4 +1,4 @@
-package com.company.widok;
+package com.company.util;
 
 import com.company.util.ImageUtil;
 

@@ -1,5 +1,7 @@
 package com.company.widok;
 
+import com.company.util.ButtonFactory;
+
 import javax.swing.*;
 
 public class GameToolbar extends JToolBar {

@@ -1,13 +1,10 @@
-package com.company;
+package com.company.widok;
 
+import com.company.Game;
+import com.company.util.ButtonFactory;
 import com.company.util.SpringUtilities;
-import com.company.przyklady.ZasadyGry;
-import com.company.widok.*;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MenuPanel extends JPanel {
 
@@ -36,7 +33,4 @@ public class MenuPanel extends JPanel {
         wyjscie.addActionListener(e -> Game.getGame().dispose());
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() ->  Game.getGame());
-    }
 }

@@ -1,6 +1,7 @@
 package com.company.widok;
 
-import com.company.MenuPanel;
+import com.company.Game;
+import com.company.util.ButtonFactory;
 import com.company.util.SpringUtilities;
 
 import javax.swing.*;
