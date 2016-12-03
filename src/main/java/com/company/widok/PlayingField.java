@@ -17,6 +17,7 @@ public class PlayingField extends JPanel implements ActionListener {
         setBackground(Color.black);
         setFocusable(true);
         initGame();
+        revalidate();
 
     }
 
@@ -30,7 +31,7 @@ public class PlayingField extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        PaintUtil.paintCourse(g);
+        PaintUtil.paintCourse(g, this);
         PaintUtil.paintGamer(g,this);
 
     }

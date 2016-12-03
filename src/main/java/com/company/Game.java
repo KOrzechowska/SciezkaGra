@@ -16,11 +16,12 @@ public class Game extends JFrame {
     private Game() {
         super();
         setTitle("Sciezka");
-        setSize(500, 500);
+        setMinimumSize(new Dimension(500, 625));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         add(new MenuPanel());
         setVisible(true);
+        pack();
     }
 
     public static Game getGame() {
