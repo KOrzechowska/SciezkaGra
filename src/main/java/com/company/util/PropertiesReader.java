@@ -6,6 +6,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.InputStream;
 
 public class PropertiesReader {
 
@@ -15,11 +16,10 @@ public class PropertiesReader {
         try {
             //Get file from resources folder
             ClassLoader classLoader = PropertiesReader.class.getClassLoader();
-            File fXmlFile = new File(classLoader.getResource(Filename).getFile());
-
+            InputStream in = getClass().getResourceAsStream("/"+Filename);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(fXmlFile);
+            doc = dBuilder.parse(in);
 
             doc.getDocumentElement().normalize();
 
