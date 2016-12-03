@@ -20,5 +20,7 @@ public class AppTest {
         assertNull(doopa);
         int speedInt = pReader.getPropertyValueInt("speed");
         assertEquals(30,speedInt);
+        int heartInt = pReader.getPropertyValueInt("lifes");
+        assertEquals(3,heartInt);
     }
 }
