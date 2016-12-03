@@ -10,11 +10,13 @@ import java.awt.*;
 public class Game extends JFrame {
     private static Game game = new Game();
 
-    private Player player = new Player();
+    private Player player;
     private Course course = new Course();
 
     private Game() {
         super();
+        player = new Player();
+
         setTitle("Sciezka");
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

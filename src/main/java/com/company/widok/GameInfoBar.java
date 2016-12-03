@@ -8,10 +8,11 @@ import javax.swing.*;
 public class GameInfoBar extends JPanel {
     public GameInfoBar() {
         super();
-        addHeart();
-        addHeart();
-        addHeart();
-        JTextArea scoreArea = new JTextArea("Score: "+0);
+
+        for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++)
+            addHeart();
+
+        JTextArea scoreArea = new JTextArea("Score: "+ Game.getGame().getPlayer().getScore());
         scoreArea.setEditable(false);
         add(scoreArea);
         JTextArea levelNumberArea = new JTextArea("Level: " + Game.getGame().getCourse().getLevelNumber());
