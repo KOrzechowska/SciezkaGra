@@ -18,5 +18,6 @@ public class MainGameField extends JPanel {
         add(infoBar, BorderLayout.SOUTH);
         add(new PlayingField());
 
+
     }
 }

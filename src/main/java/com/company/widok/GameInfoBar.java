@@ -4,11 +4,16 @@ import com.company.Game;
 import com.company.util.ButtonFactory;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameInfoBar extends JPanel {
+
+    private List<JButton> hearts = new ArrayList<>();
     public GameInfoBar() {
         super();
-
+        setPreferredSize(new Dimension(500,50));
         for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++)
             addHeart();
 
@@ -25,5 +30,14 @@ public class GameInfoBar extends JPanel {
         heartImage.setEnabled(false);
         heartImage.setDisabledIcon(heartImage.getIcon());
         add(heartImage);
+        hearts.add(heartImage);
+    }
+
+    public void disabledHeart(int i){
+        hearts.get(i).setDisabledIcon(null);
+    }
+
+    public void activateHeart(int i){
+        hearts.get(i).setDisabledIcon(hearts.get(i).getIcon());
     }
 }

@@ -10,19 +10,18 @@ import java.awt.*;
 public class Game extends JFrame {
     private static Game game = new Game();
 
-    private Player player;
+    private Player player = new Player();
     private Course course = new Course();
 
     private Game() {
         super();
-        player = new Player();
-
         setTitle("Sciezka");
-        setSize(500, 500);
+        setMinimumSize(new Dimension(500, 625));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         add(new MenuPanel());
         setVisible(true);
+        pack();
     }
 
     public static Game getGame() {
