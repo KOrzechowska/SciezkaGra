@@ -30,7 +30,9 @@ public class PlayingField extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        PaintUtil.paintCourse(g);
         PaintUtil.paintGamer(g,this);
+
     }
 
     @Override

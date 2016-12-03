@@ -5,11 +5,10 @@ import com.company.logic.Course;
 import com.company.logic.Player;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Game extends JFrame {
     private static Game game = new Game();
-
-    private JPanel currentActivePanel = new MenuPanel();
 
     private Player player = new Player();
     private Course course = new Course();
@@ -17,9 +16,10 @@ public class Game extends JFrame {
     private Game() {
         super();
         setTitle("Sciezka");
+        setSize(500,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        add(currentActivePanel);
+        add(new MenuPanel());
         setVisible(true);
     }
 
@@ -29,6 +29,7 @@ public class Game extends JFrame {
 
 
     public void setCurrentActivePanel(JPanel currentActivePanel) {
+
         getContentPane().removeAll();
         getContentPane().add(currentActivePanel);
         validate();
