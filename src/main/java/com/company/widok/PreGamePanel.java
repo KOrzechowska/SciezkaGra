@@ -21,7 +21,10 @@ public class PreGamePanel extends JPanel {
         JButton previousButton = ButtonFactory.createJButtonWithName("Wróć do menu");
 
         previousButton.addActionListener(e -> Game.getGame().setCurrentActivePanel(new MenuPanel()));
-        nextButton.addActionListener(e -> Game.getGame().setCurrentActivePanel(new MainGameField()));
+        nextButton.addActionListener(e ->{
+                                            Game.getGame().setCurrentActivePanel(new MainGameField());
+                                            Game.getGame().getPlayer().setNick(nickInput.getText());
+                                        });
 
         JPanel main = new JPanel(new SpringLayout());
         main.add(difficultyLabel);

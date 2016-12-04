@@ -7,10 +7,11 @@ import com.company.util.PropertiesReader;
  */
 public class Player {
     /** liczba zyc */
-    int nrOfLifes;
+    private int nrOfLifes;
     /** wynik gracza */
-    int score;
-    int x,y;
+    private int score;
+    private int x,y;
+    private String nick;
 
     public Player(){
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
@@ -33,6 +34,14 @@ public class Player {
                     }
                     i++;
                 }
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public int getX() {

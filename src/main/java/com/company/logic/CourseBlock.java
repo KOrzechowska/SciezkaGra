@@ -1,5 +1,8 @@
 package com.company.logic;
 
+/**
+ * blok ścieżki czyli blok planszy
+ */
 public class CourseBlock {
     final int x,y;
     int rodzaj;
