@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  * generuje pole gry
  */
 public class PlayingField extends JPanel implements ActionListener {
-    private final int DELAY = 140; //#TODO uzależnić od poziomu trudności
+    private final int DELAY = 50; //#TODO uzależnić od poziomu trudności
     private Timer timer;
 
     public PlayingField() {

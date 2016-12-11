@@ -27,8 +27,9 @@ public class Course {
         /** pobranie planszy z xml*/
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
+        planszaStream = new StringBuffer(planszaStream).reverse().toString();
         int i=0;
-        for(int y=14; y>-1; y--)
+        for(int y=-10; y<10; y++)
             for (int x=0; x<10; x++)
             {
                 int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
