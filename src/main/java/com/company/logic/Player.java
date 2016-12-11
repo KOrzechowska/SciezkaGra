@@ -6,9 +6,7 @@ import com.company.util.PropertiesReader;
  * Player - gracz
  */
 public class Player {
-    /** liczba zyc */
     private int nrOfLifes;
-    /** wynik gracza */
     private int score;
     private int x,y;
     private String nick;
@@ -21,6 +19,10 @@ public class Player {
         setFirstCoordinates();
     }
 
+    /**
+     * ustwienie początkowych współrzędnych graczy
+     * - współrzędne te są czytane z pliku konfiguracyjnego
+     */
     private void setFirstCoordinates(){
             // pobranie planszy z xml
             PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
@@ -37,52 +39,105 @@ public class Player {
                     i++;
                 }
     }
-
+    public void advancePlayer()
+    {
+        this.y++;
+    }
+    /**
+     * funkcja zwarvająca wybrany pojazd użytkownika
+     * @return kod wybranego auta
+     */
     public int getCarImage() {
         return carImage;
     }
 
+    /**
+     * ustawienie auta dla gracza
+     * @param carImage - kod auta
+     */
     public void setCarImage(int carImage) {
         this.carImage = carImage;
     }
 
+    /**
+     * funkcja zwracająca nazwę użtkownika
+     * @return nazwa gracza
+     */
     public String getNick() {
         return nick;
     }
 
+    /**
+     * ustawienie nazwy graczowi
+     * @param nick - nazwa gracza
+     */
     public void setNick(String nick) {
         this.nick = nick;
     }
 
+    /**
+     * funkcja zwaracająca współrzedną x gracza
+     * @return - współrzędna x
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * ustawienie graczowi współrzędnej x
+     * @param x współrzędna x gracza
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     * funkcja zwracająca współrzędną y gracza
+     * @return współrzędna y gracza
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * ustawienie współrzędnej x użytkownika
+     * @param y współrzędna y gracza
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    /**
+     * funkcja zwracająca liczbę żyć gracza
+     * @return liczba żyć
+     */
     public int getNrOfLifes() {
         return nrOfLifes;
     }
 
+    /**
+     * ustawienie liczby żyć użytkownikowi
+     * @param nrOfLifes - liczba żyć
+     */
     public void setNrOfLifes(int nrOfLifes) {
         this.nrOfLifes = nrOfLifes;
     }
 
+    /**
+     * funkcja zwracająca wynik gracza
+     * @return - liczba zdobytych punktów
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * ustawienie graczowi liczby punktów
+     * @param score - liczba zdobytych punktów
+     */
     public void setScore(int score) {
         this.score = score;
     }
+
+
 }

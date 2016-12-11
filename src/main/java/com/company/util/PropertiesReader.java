@@ -64,7 +64,12 @@ public class PropertiesReader {
         }
         return output;
     }
-    
+
+    /**
+     * funkcja zwracająca z pliku konfuguracyjnego wartości typu int
+     * @param propertyName nazwa wartości którą chcemy pobrać czyli tag z xml
+     * @return wartość odpytywanego pola
+     */
     public int getPropertyValueInt(String propertyName) {
         String returnValue = getPropertyValue(propertyName);
         return Integer.valueOf(returnValue);

@@ -145,7 +145,7 @@ public class SpringUtilities {
                         lastCons.getConstraint(SpringLayout.EAST)));
     }
 
-    /* Used by makeCompactGrid. */
+    /** Used by makeCompactGrid. */
     private static SpringLayout.Constraints getConstraintsForCell(
             int row, int col,
             Container parent,

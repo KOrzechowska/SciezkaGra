@@ -1,5 +1,7 @@
 package com.company.widok;
 
+import com.company.Game;
+import com.company.logic.Commons;
 import com.company.util.KeyboardHandler;
 import com.company.util.PaintUtil;
 
@@ -19,6 +21,7 @@ public class PlayingField extends JPanel implements ActionListener {
     public PlayingField() {
         addKeyListener(new KeyboardHandler());
         setBackground(Color.black);
+        setPreferredSize(new Dimension(Commons.boardWidth,Commons.boardWidth));
         setFocusable(true);
         initGame();
         revalidate();
@@ -42,6 +45,8 @@ public class PlayingField extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
+        Game game =Game.getGame();
+        game.getPlayer().advancePlayer();
         repaint();
     }
 }

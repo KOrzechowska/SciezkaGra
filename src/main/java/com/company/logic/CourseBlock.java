@@ -4,8 +4,8 @@ package com.company.logic;
  * blok ścieżki czyli blok planszy
  */
 public class CourseBlock {
-    final int x,y;
-    int rodzaj;
+    private int x,y;
+    int rodzaj;//#TODO zamienić na enuma albo polimorfizm
     public CourseBlock(int x,int y, int rodzaj)
     {
         this.x=x;
@@ -27,5 +27,10 @@ public class CourseBlock {
 
     public void setRodzaj(int rodzaj) {
         this.rodzaj = rodzaj;
+    }
+
+    public void advanceBlock()
+    {
+        this.y++;
     }
 }

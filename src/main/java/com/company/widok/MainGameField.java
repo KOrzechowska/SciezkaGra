@@ -1,5 +1,7 @@
 package com.company.widok;
 
+import com.company.logic.Commons;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,7 +14,7 @@ public class MainGameField extends JPanel {
     public MainGameField() {
 
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(500, 500));
+        //setPreferredSize(new Dimension(Commons.boardWidth, 500));
 
         final GameInfoBar infoBar = new GameInfoBar();
         final GameToolbar toolbar = new GameToolbar();

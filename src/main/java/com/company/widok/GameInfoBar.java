@@ -1,6 +1,7 @@
 package com.company.widok;
 
 import com.company.Game;
+import com.company.logic.Commons;
 import com.company.util.ButtonFactory;
 
 import javax.swing.*;
@@ -23,7 +24,7 @@ public class GameInfoBar extends JPanel {
      */
     public GameInfoBar() {
         super();
-        setPreferredSize(new Dimension(500,50));
+        setPreferredSize(new Dimension(Commons.boardWidth,50));
         for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++)
             addHeart();
 
