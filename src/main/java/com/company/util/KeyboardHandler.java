@@ -3,8 +3,11 @@ package com.company.util;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * klasa obsługująca przyciski
+ */
 public class KeyboardHandler implements KeyListener {
-//    #TODO Implement key pressed methods
+//    #TODO Zaimplementować metody obsługi przycisków
     @Override
     public void keyTyped(KeyEvent keyEvent) {
 

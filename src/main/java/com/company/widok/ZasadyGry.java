@@ -6,6 +6,10 @@ import com.company.util.ButtonFactory;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * klasa dziedzicząca po JPanel
+ * zawiera okno tekstowe w którym są zawarte reguły gry
+ */
 public class ZasadyGry extends JPanel{
     public ZasadyGry()
     {

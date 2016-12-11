@@ -6,6 +6,11 @@ import com.company.util.ButtonFactory;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * klasa dziedziczaca po JToolBar
+ * pasek narzedzi z aktywnymi przyciskami
+ * tzn pauza, top5 wyników i nowa gra
+ */
 public class GameToolbar extends JToolBar {
     public GameToolbar() {
         super();

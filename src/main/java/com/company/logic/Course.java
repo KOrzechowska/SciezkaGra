@@ -19,7 +19,7 @@ public class Course {
     }
 
     private void getPlansza(){
-        // pobranie planszy z xml
+        /** pobranie planszy z xml*/
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
         int i=0;

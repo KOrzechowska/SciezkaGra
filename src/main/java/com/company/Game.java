@@ -7,6 +7,11 @@ import com.company.widok.MenuPanel;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * klasa dziedzicząca po JFrame
+ * tworzy ramke gry
+ * zawiera obiekty gracz i ścieżka
+ */
 public class Game extends JFrame {
     private static Game game = new Game();
 
@@ -28,7 +33,10 @@ public class Game extends JFrame {
         return game;
     }
 
-
+    /**
+     * funkcja służąca do ustawienia aktualnie wyświetlanego panelu
+     * @param currentActivePanel panel do wyświetlania
+     */
     public void setCurrentActivePanel(JPanel currentActivePanel) {
 
         getContentPane().removeAll();
@@ -37,6 +45,10 @@ public class Game extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * funkcja pobierająca obiekt gracz
+     * @return zwaraca obiekt gracz
+     */
     public Player getPlayer() {
         return player;
     }
@@ -45,6 +57,10 @@ public class Game extends JFrame {
         this.player = player;
     }
 
+    /**
+     * funkcja pobierajaca ścieżkę
+     * @return zwraca ścieżkę
+     */
     public Course getCourse() {
         return course;
     }

@@ -6,6 +6,11 @@ import com.company.util.SpringUtilities;
 
 import javax.swing.*;
 
+/**
+ * klasa dziedzicząca po JPanel
+ * zawiera przyciski funkcjonalne
+ * menu prezentowane na samym początku gry
+ */
 public class MenuPanel extends JPanel {
 
 

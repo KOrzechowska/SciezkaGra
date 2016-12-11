@@ -6,6 +6,10 @@ import com.company.util.SpringUtilities;
 
 import javax.swing.*;
 
+/**
+ * klasa dziedzicząca po JPanel
+ * zawiera przyciski funkcjonalne oraz rozwijaną liste z wyborem jednego z trzech poziomów trudności
+ */
 public class PreGamePanel extends JPanel {
     public PreGamePanel() {
 

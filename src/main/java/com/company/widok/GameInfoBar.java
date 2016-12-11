@@ -8,9 +8,19 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * klasa dziedziczaca po JPanel
+ * pasek z informacjami o obecnym stanie gry
+ * tzn liczba żyć , liczba punktów, poziom
+ */
 public class GameInfoBar extends JPanel {
-
+    /**lista prezentowanych zyć*/
     private List<JButton> hearts = new ArrayList<>();
+
+    /**
+     * konstruktor klasy
+     * zasilenie panelu wartościami początkowymi gry
+     */
     public GameInfoBar() {
         super();
         setPreferredSize(new Dimension(500,50));
@@ -25,6 +35,9 @@ public class GameInfoBar extends JPanel {
         add(levelNumberArea);
     }
 
+    /**
+     * funkcja dodajaca jedno zycie do panelu
+     */
     private void addHeart() {
         JButton heartImage = ButtonFactory.createJButtonWithImageFile("serce1.jpg");
         heartImage.setEnabled(false);
@@ -33,10 +46,18 @@ public class GameInfoBar extends JPanel {
         hearts.add(heartImage);
     }
 
+    /**
+     * funkcja odejmująca życie na panelu
+     * @param i numer życia do desaktywacji
+     */
     public void disabledHeart(int i){
         hearts.get(i).setDisabledIcon(null);
     }
 
+    /**
+     * funkcja dodająca życie na panelu
+     * @param i nr życia do aktywacji
+     */
     public void activateHeart(int i){
         hearts.get(i).setDisabledIcon(hearts.get(i).getIcon());
     }

@@ -3,6 +3,11 @@ package com.company.widok;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * klasa dziedziczaca po JPanel
+ * zawiera trzy panele gry
+ * tzn panel gry, panel informacyjny, panel narzędzi
+ */
 public class MainGameField extends JPanel {
     public MainGameField() {
 

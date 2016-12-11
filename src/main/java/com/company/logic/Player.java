@@ -12,8 +12,10 @@ public class Player {
     private int score;
     private int x,y;
     private String nick;
+    private int carImage=1;
 
     public Player(){
+        //pobieranie informacji z xml
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         nrOfLifes = propertiesReader.getPropertyValueInt("lifes");
         setFirstCoordinates();
@@ -34,6 +36,14 @@ public class Player {
                     }
                     i++;
                 }
+    }
+
+    public int getCarImage() {
+        return carImage;
+    }
+
+    public void setCarImage(int carImage) {
+        this.carImage = carImage;
     }
 
     public String getNick() {

@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * narzedzie do wczytywania obrazków znajdujących się w pliku Recources
+ */
 public class ImageUtil {
     public static BufferedImage getBufferedImageFromFile(String imageFileName) {
         try {
