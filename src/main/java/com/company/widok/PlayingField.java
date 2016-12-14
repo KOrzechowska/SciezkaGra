@@ -2,7 +2,7 @@ package com.company.widok;
 
 import com.company.Game;
 import com.company.logic.Commons;
-import com.company.util.KeyboardHandler;
+import com.company.util.KeyboardKeyListener;
 import com.company.util.PaintUtil;
 
 import javax.swing.*;
@@ -15,13 +15,13 @@ import java.awt.event.ActionListener;
  * generuje pole gry
  */
 public class PlayingField extends JPanel implements ActionListener {
-    private final int DELAY = 50; //#TODO uzależnić od poziomu trudności
+    private final int DELAY = 25; //#TODO uzależnić od poziomu trudności
     private Timer timer;
 
     public PlayingField() {
-        addKeyListener(new KeyboardHandler());
+        addKeyListener(new KeyboardKeyListener());
         setBackground(Color.black);
-        setPreferredSize(new Dimension(Commons.boardWidth,Commons.boardWidth));
+        setPreferredSize(new Dimension(Commons.boardWidth, Commons.boardWidth));
         setFocusable(true);
         initGame();
         revalidate();
@@ -39,14 +39,15 @@ public class PlayingField extends JPanel implements ActionListener {
         super.paintComponent(g);
 
         PaintUtil.paintCourse(g, this);
-        PaintUtil.paintGamer(g,this);
+        PaintUtil.paintGamer(g, this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        Game game =Game.getGame();
+        Game game = Game.getGame();
         game.getPlayer().advancePlayer();
         repaint();
     }
+
 }
