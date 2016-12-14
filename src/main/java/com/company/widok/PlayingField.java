@@ -19,13 +19,12 @@ public class PlayingField extends JPanel implements ActionListener {
     private Timer timer;
 
     public PlayingField() {
-        addKeyListener(new KeyboardKeyListener());
         setBackground(Color.black);
         setPreferredSize(new Dimension(Commons.boardWidth, Commons.boardWidth));
-        setFocusable(true);
+
         initGame();
         revalidate();
-
+        addKeyListener(new KeyboardKeyListener());
     }
 
     private void initGame() {
@@ -40,6 +39,7 @@ public class PlayingField extends JPanel implements ActionListener {
 
         PaintUtil.paintCourse(g, this);
         PaintUtil.paintGamer(g, this);
+
 
     }
 

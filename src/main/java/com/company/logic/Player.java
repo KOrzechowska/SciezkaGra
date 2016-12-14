@@ -2,6 +2,8 @@ package com.company.logic;
 
 import com.company.util.PropertiesReader;
 
+import java.awt.event.KeyEvent;
+
 /**
  * Player - gracz
  */
@@ -139,5 +141,9 @@ public class Player {
         this.score = score;
     }
 
+    public void handleKeys(KeyEvent e)
+    {
+        System.out.println("malekotki");
+    }
 
 }

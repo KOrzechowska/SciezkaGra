@@ -3,6 +3,7 @@ package com.company;
 import com.company.logic.Commons;
 import com.company.logic.Course;
 import com.company.logic.Player;
+import com.company.util.KeyboardKeyListener;
 import com.company.widok.MenuPanel;
 
 import javax.swing.*;
@@ -23,12 +24,14 @@ public class Game extends JFrame {
 
     private Game() {
         super();
+        addKeyListener(new KeyboardKeyListener());
         setTitle("Sciezka");
         setMinimumSize(new Dimension(Commons.boardWidth, Commons.boardHeigth));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         add(new MenuPanel());
         setVisible(true);
+        setFocusable(true);
         pack();
     }
 
