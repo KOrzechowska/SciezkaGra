@@ -2,6 +2,7 @@ package com.company.widok;
 
 import com.company.Game;
 import com.company.logic.Commons;
+import com.company.logic.GameController;
 import com.company.util.KeyboardKeyListener;
 import com.company.util.PaintUtil;
 
@@ -16,6 +17,7 @@ import java.awt.event.ActionListener;
  */
 public class PlayingField extends JPanel implements ActionListener {
     private final int DELAY = 25; //#TODO uzależnić od poziomu trudności
+    GameController gameController;
 
     public PlayingField() {
         setBackground(Color.black);
@@ -30,6 +32,7 @@ public class PlayingField extends JPanel implements ActionListener {
         Game.getGame().setTimer(new Timer(DELAY, this));
         Timer timer = Game.getGame().getTimer();
         timer.start();
+        gameController = new GameController();
     }
 
     @Override
@@ -38,8 +41,7 @@ public class PlayingField extends JPanel implements ActionListener {
 
         PaintUtil.paintCourse(g, this);
         PaintUtil.paintGamer(g, this);
-
-
+        gameController.doControlling();
     }
 
     @Override

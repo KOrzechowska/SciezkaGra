@@ -43,6 +43,18 @@ public class Course {
             }
     }
 
+    public Block getBlock(int x, int y){
+        Block wynikowy = null;
+        for(Block block : currentCourseBlocks){
+
+            if(block.isInRangeX(x) && block.isInRangeY(y)) {
+                wynikowy = block;
+                System.out.println(block.getY()+" klocek");
+            }
+        }
+        return wynikowy;
+    }
+
     /**
      * funkcja zwarcający aktulany poziom
      * @return poziom gry

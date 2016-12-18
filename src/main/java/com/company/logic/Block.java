@@ -12,4 +12,6 @@ public abstract class Block
     public abstract int getX();
     public abstract int getY();
     public abstract ImageIcon getBlockImage();
+    public abstract boolean isInRangeX(int x);
+    public abstract boolean isInRangeY(int y);
 }
