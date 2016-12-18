@@ -1,9 +1,7 @@
 package com.company.util;
 
-import com.company.logic.Commons;
-import com.company.logic.CourseBlock;
+import com.company.logic.*;
 import com.company.Game;
-import com.company.logic.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,20 +38,15 @@ public class PaintUtil {
      * @param courseBlock klocek planszy
      * @param imageObserver interfejs ImageObserver
      */
-    private static void paintBlock(Graphics g,CourseBlock courseBlock, ImageObserver imageObserver)
+    private static void paintBlock(Graphics g, Block courseBlock, ImageObserver imageObserver)
     {
         Game game = Game.getGame();
         Player player = game.getPlayer();
 
         int skala_w = (int) (Commons.blockSize*Game.getGame().getWidth()/Commons.boardWidth);
         int skala_h = (int) (Commons.blockSize*Game.getGame().getHeight()/Commons.boardHeigth);
-        ImageIcon blockImage;
-        if(courseBlock.getRodzaj() == 0)// podłoga
-            blockImage = ImageUtil.getImageIconFromFile("pobocze.jpeg");
-        else
-            blockImage = ImageUtil.getImageIconFromFile("droga.jpeg");
 
-        g.drawImage(blockImage.getImage(), (int)(courseBlock.getX() * skala_w), (int)(courseBlock.getY()  * skala_h)+player.getY(), skala_w, skala_h, imageObserver);
+        g.drawImage(courseBlock.getBlockImage().getImage(), (int)(courseBlock.getX() * skala_w), (int)(courseBlock.getY()  * skala_h)+player.getY(), skala_w, skala_h, imageObserver);
     }
 
     /**
@@ -62,8 +55,8 @@ public class PaintUtil {
      * @param imageObserver
      */
     public static void paintCourse(Graphics g, ImageObserver imageObserver) {
-        List<CourseBlock> courseBlocks= Game.getGame().getCourse().getCurrentCourseBlocks();
-        for (CourseBlock block : courseBlocks)
+        List<Block> courseBlocks= Game.getGame().getCourse().getCurrentCourseBlocks();
+        for (Block block : courseBlocks)
         {
             paintBlock(g,block,imageObserver);
         }

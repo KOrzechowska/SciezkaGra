@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class Course {
     private int levelNumber = 1;
-    private List<CourseBlock> currentCourseBlocks;
+    private List<Block> currentCourseBlocks;
 
     public Course() {
-        currentCourseBlocks = new ArrayList<CourseBlock>();
+        currentCourseBlocks = new ArrayList<Block>();
         getPlansza();
     }
 
@@ -33,7 +33,12 @@ public class Course {
             for (int x=0; x<10; x++)
             {
                 int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
-                currentCourseBlocks.add(new CourseBlock(x,y,rodzajBloku));
+                if (rodzajBloku == 0)
+                    currentCourseBlocks.add(new BlockShoulder(x,y));
+                if (rodzajBloku == 1 || rodzajBloku == 7)
+                    currentCourseBlocks.add(new BlockCourse(x,y));
+                if( rodzajBloku == 2)
+                    currentCourseBlocks.add(new BlockStone(x,y));
                   i++;
             }
     }
@@ -59,21 +64,21 @@ public class Course {
      * czyli definicję planszy już w postaci obiektów
      * @return lista klocków
      */
-    public List<CourseBlock> getCurrentCourseBlocks() {
+    public List<Block> getCurrentCourseBlocks() {
         return currentCourseBlocks;
     }
 
     /**
      * ustaw listę klocków
-     * @param currentCourseBlocks - definicja planszy
+     * @param currentBlocks - definicja planszy
      */
-    public void setCurrentCourseBlocks(List<CourseBlock> currentCourseBlocks) {
-        this.currentCourseBlocks = currentCourseBlocks;
+    public void setCurrentCourseBlocks(List<Block> currentBlocks) {
+        this.currentCourseBlocks = currentBlocks;
     }
 
     public void advanceCourse()
     {
-        for (CourseBlock block : this.currentCourseBlocks)
+        for (Block block : this.currentCourseBlocks)
         {
             block.advanceBlock();
         }
