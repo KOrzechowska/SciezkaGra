@@ -16,7 +16,6 @@ import java.awt.event.ActionListener;
  */
 public class PlayingField extends JPanel implements ActionListener {
     private final int DELAY = 25; //#TODO uzależnić od poziomu trudności
-    private Timer timer;
 
     public PlayingField() {
         setBackground(Color.black);
@@ -28,8 +27,8 @@ public class PlayingField extends JPanel implements ActionListener {
     }
 
     private void initGame() {
-
-        timer = new Timer(DELAY, this);
+        Game.getGame().setTimer(new Timer(DELAY, this));
+        Timer timer = Game.getGame().getTimer();
         timer.start();
     }
 
@@ -49,5 +48,4 @@ public class PlayingField extends JPanel implements ActionListener {
         game.getPlayer().advancePlayer();
         repaint();
     }
-
 }

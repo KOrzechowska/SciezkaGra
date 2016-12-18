@@ -15,7 +15,7 @@ public class CarChoicePanel extends JPanel {
      */
     public CarChoicePanel() {
         Icon auto1 = ImageUtil.getImageIconFromFile("auto1.jpeg");
-        Icon auto2 = ImageUtil.getImageIconFromFile("auto2.jpeg");
+        Icon auto2 = ImageUtil.getImageIconFromFile("red_car.jpg");
         Icon auto3 = ImageUtil.getImageIconFromFile("auto3.jpeg");
         Object tablicaObrazowAut[] = {auto1, auto2, auto3};
 

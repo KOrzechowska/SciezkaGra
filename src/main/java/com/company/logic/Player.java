@@ -12,7 +12,7 @@ public class Player {
     private int score;
     private int x,y;
     private String nick;
-    private int carImage=1;
+    private int carImage=0;
 
     public Player(){
         //pobieranie informacji z xml
@@ -35,7 +35,7 @@ public class Player {
                 {
                     int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
                     if(rodzajBloku == 7){
-                        this.x = x;
+                        this.x = x*Commons.blockSize;
                         this.y = y;
                     }
                     i++;

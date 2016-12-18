@@ -21,6 +21,7 @@ public class Game extends JFrame {
     private Player player = new Player();
     /** ścieżka - plansza*/
     private Course course = new Course();
+    private Timer timer;
 
     private Game() {
         super();
@@ -89,5 +90,13 @@ public class Game extends JFrame {
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> Game.getGame());
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
     }
 }
