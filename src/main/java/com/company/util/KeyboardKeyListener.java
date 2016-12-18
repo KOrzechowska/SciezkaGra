@@ -21,7 +21,7 @@ public class KeyboardKeyListener extends KeyAdapter {
         timer=Game.getGame().getTimer();
         int key = keyEvent.getKeyCode();
         Game game = Game.getGame();
-        System.out.println("gotgame");
+        //System.out.println("gotgame");
         Player player = game.getPlayer();
         player.handleKeys(keyEvent);
         if (key == KeyEvent.VK_ESCAPE)

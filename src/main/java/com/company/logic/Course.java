@@ -49,7 +49,7 @@ public class Course {
 
             if(block.isInRangeX(x) && block.isInRangeY(y)) {
                 wynikowy = block;
-                System.out.println(block.getY()+" klocek");
+                //System.out.println(block.getY()+" klocek");
             }
         }
         return wynikowy;

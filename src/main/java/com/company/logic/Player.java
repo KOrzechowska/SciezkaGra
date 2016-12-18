@@ -25,7 +25,7 @@ public class Player {
      * ustwienie początkowych współrzędnych graczy
      * - współrzędne te są czytane z pliku konfiguracyjnego
      */
-    private void setFirstCoordinates(){
+    public void setFirstCoordinates(){
             // pobranie planszy z xml
             PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
             String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
@@ -143,7 +143,7 @@ public class Player {
 
     public void handleKeys(KeyEvent e)
     {
-        System.out.println("malekotki");
+        //System.out.println("malekotki");
     }
 
 }

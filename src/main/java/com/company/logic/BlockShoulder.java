@@ -16,28 +16,7 @@ public class BlockShoulder extends Block{
         this.y=y;
         this.blockImage = ImageUtil.getImageIconFromFile("pobocze.jpeg");
     }
-    public boolean isInRangeX(int x){
-        boolean isInRange;
-        int maxX = Commons.blockSize + this.x*Commons.blockSize;
-        int minX = this.x*Commons.blockSize;
-        if(x<maxX && x>minX)
-            isInRange = true;
-        else
-            isInRange = false;
-        System.out.println(minX+"   "+maxX+"   "+x);
-        return isInRange;
-    }
-    public boolean isInRangeY(int y){
-        boolean isInRange;
-        int maxY = Commons.blockSize + this.y*Commons.blockSize;
-        int minY = this.y*Commons.blockSize;
-        if(y<maxY && y>minY)
-            isInRange = true;
-        else
-            isInRange = false;
-        System.out.println(minY+"   "+maxY+"   "+y);
-        return isInRange;
-    }
+
     public int getX() {
         return x;
     }
