@@ -18,6 +18,7 @@ public class MainGameField extends JPanel {
 
         final GameInfoBar infoBar = new GameInfoBar();
         final GameToolbar toolbar = new GameToolbar();
+        infoBar.disabledHeart(2);//#TODO usunąć
         System.out.println("jestem");
         setVisible(true);
 

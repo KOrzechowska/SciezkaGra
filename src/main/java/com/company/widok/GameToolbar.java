@@ -30,6 +30,7 @@ public class GameToolbar extends JToolBar {
         add(highScoresButton);
         add(newGameButton);
         add(pauseButton);
+
         ActionListener pauseEvent = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -43,6 +44,7 @@ public class GameToolbar extends JToolBar {
                 }
             }
         };
+
         pauseButton.addActionListener(pauseEvent);
 
         //ActionListener newGameEvent = new ActionListener() {

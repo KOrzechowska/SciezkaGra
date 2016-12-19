@@ -53,6 +53,8 @@ public class GameInfoBar extends JPanel {
      */
     public void disabledHeart(int i){
         hearts.get(i).setDisabledIcon(null);
+        validate();
+        setVisible(true);
     }
 
     /**
@@ -61,5 +63,7 @@ public class GameInfoBar extends JPanel {
      */
     public void activateHeart(int i){
         hearts.get(i).setDisabledIcon(hearts.get(i).getIcon());
+        validate();
+        setVisible(true);
     }
 }
