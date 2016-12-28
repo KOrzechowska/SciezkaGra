@@ -18,7 +18,7 @@ public class AppTest {
         assertNull(doopa);
         int speedInt = pReader.getPropertyValueInt("lifes");
         assertNotNull(pReader.getPropertyValue("plansza",1));
-        assertNull(pReader.getPropertyValue("plansza",2));
+        assertNotNull(pReader.getPropertyValue("plansza",2));
         assertEquals(4,speedInt);
     }
 }

@@ -5,17 +5,16 @@ import com.company.util.ImageUtil;
 import javax.swing.*;
 
 /**
- * Przeszkody na ścieżce
+ * Created by mrgrinch on 24.12.16.
  */
-public class BlockStone extends Block
-{
+public class BlockHeart extends Block {
     private int x,y;
     private ImageIcon blockImage;
-    public BlockStone(int x,int y)
+    public BlockHeart(int x,int y)
     {
         this.x=x;
         this.y=y;
-        this.blockImage = ImageUtil.getImageIconFromFile("stone.png");
+        this.blockImage = ImageUtil.getImageIconFromFile("serce1.jpg");
     }
 
     public int getX() {
@@ -48,4 +47,3 @@ public class BlockStone extends Block
         this.y++;
     }
 }
-

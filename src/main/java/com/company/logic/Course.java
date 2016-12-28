@@ -33,12 +33,24 @@ public class Course {
             for (int x=0; x<10; x++)
             {
                 int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
-                if (rodzajBloku == 0)
-                    currentCourseBlocks.add(new BlockShoulder(x,y));
-                if (rodzajBloku == 1 || rodzajBloku == 7)
-                    currentCourseBlocks.add(new BlockCourse(x,y));
-                if( rodzajBloku == 2)
+                if (rodzajBloku == 0) {
+                    currentCourseBlocks.add(new BlockShoulder(x, y));
+                    System.out.println("pobocze:\t"+x+"\t"+y);
+                }
+                if (rodzajBloku == 1 || rodzajBloku == 7) {
+                    currentCourseBlocks.add(new BlockCourse(x, y));
+
+                }
+                if( rodzajBloku == 2){
                     currentCourseBlocks.add(new BlockStone(x,y));
+                }
+
+                if ( rodzajBloku == 3)
+                    currentCourseBlocks.add(new BlockCoin(x,y));
+                if ( rodzajBloku == 4) {
+                    currentCourseBlocks.add(new BlockHeart(x, y));
+                    System.out.println(x+"\t"+y);
+                }
                   i++;
             }
     }
@@ -46,10 +58,11 @@ public class Course {
     public Block getBlock(int x, int y){
         Block wynikowy = null;
         for(Block block : currentCourseBlocks){
-
-            if(block.isInRangeX(x) && block.isInRangeY(y)) {
+            if(block.getX() == 3 && block.getY() == 6)
+            //if(block.isInRangeX(x) && block.isInRangeY(y)) {
+            if(block.isInRange(x,y)){
                 wynikowy = block;
-                //System.out.println(block.getY()+" klocek");
+                //System.out.println(block.getY()+"\t"+block.getX()+" klocek");
             }
         }
         return wynikowy;

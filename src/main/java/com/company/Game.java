@@ -7,6 +7,7 @@ import com.company.util.KeyboardKeyListener;
 import com.company.widok.MenuPanel;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 
 /**
@@ -22,6 +23,8 @@ public class Game extends JFrame {
     /** ścieżka - plansza*/
     private Course course = new Course();
     private Timer timer;
+
+    private boolean restartGame = false;
 
     private Game() {
         super();
@@ -42,6 +45,14 @@ public class Game extends JFrame {
      */
     public static Game getGame() {
         return game;
+    }
+
+    public boolean isRestartGame() {
+        return restartGame;
+    }
+
+    public void setRestartGame(boolean restartGame) {
+        this.restartGame = restartGame;
     }
 
     /**

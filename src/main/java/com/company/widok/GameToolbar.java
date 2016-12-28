@@ -47,12 +47,13 @@ public class GameToolbar extends JToolBar {
 
         pauseButton.addActionListener(pauseEvent);
 
-        //ActionListener newGameEvent = new ActionListener() {
-          //  @Override
-            //public void actionPerformed(ActionEvent actionEvent) {
-
-           // }
-        //};
-        //pauseButton.addActionListener(pauseEvent);
+        ActionListener newGameEvent = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Game.getGame().setRestartGame(true);
+                Game.getGame().getTimer().start();
+            }
+        };
+        newGameButton.addActionListener(newGameEvent);
     }
 }

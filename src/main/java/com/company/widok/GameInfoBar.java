@@ -66,4 +66,11 @@ public class GameInfoBar extends JPanel {
         validate();
         setVisible(true);
     }
+
+    public void activateAllHearts(){
+        for(int i = 0; i< Game.getGame().getPlayer().getNrOfLifes(); i++)
+        hearts.get(i).setDisabledIcon(hearts.get(i).getIcon());
+        validate();
+        setVisible(true);
+    }
 }

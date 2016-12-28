@@ -5,17 +5,16 @@ import com.company.util.ImageUtil;
 import javax.swing.*;
 
 /**
- * Przeszkody na ścieżce
+ * monety na ścieżce
  */
-public class BlockStone extends Block
-{
+public class BlockCoin extends Block{
     private int x,y;
     private ImageIcon blockImage;
-    public BlockStone(int x,int y)
+    public BlockCoin(int x,int y)
     {
         this.x=x;
         this.y=y;
-        this.blockImage = ImageUtil.getImageIconFromFile("stone.png");
+        this.blockImage = ImageUtil.getImageIconFromFile("coin.png");
     }
 
     public int getX() {
@@ -41,11 +40,9 @@ public class BlockStone extends Block
     public void setBlockImage(ImageIcon blockImage) {
         this.blockImage = blockImage;
     }
-
     @Override
     public void advanceBlock()
     {
         this.y++;
     }
 }
-

@@ -30,13 +30,14 @@ public class Player {
             PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
             String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
             int i=0;
-            for(int y=9; y>-1; y--)
+            for(int y=-10; y<10; y++)
                 for (int x=0; x<10; x++)
                 {
                     int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
                     if(rodzajBloku == 7){
                         this.x = x*Commons.blockSize;
                         this.y = y;
+                        System.out.println("player:\t"+x+"\t"+y);
                     }
                     i++;
                 }

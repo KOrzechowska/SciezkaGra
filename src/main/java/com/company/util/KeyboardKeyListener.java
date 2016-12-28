@@ -46,6 +46,13 @@ public class KeyboardKeyListener extends KeyAdapter {
             player.setX(player.getX()+1);
 
         }
+        if (key == KeyEvent.VK_R)
+        {
+
+            Game.getGame().setRestartGame(true);
+            timer.start();
+
+        }
     }
 
     @Override

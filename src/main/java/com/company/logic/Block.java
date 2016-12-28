@@ -1,6 +1,8 @@
 package com.company.logic;
 
 
+import com.company.Game;
+
 import javax.swing.*;
 
 /**
@@ -16,10 +18,13 @@ public abstract class Block
    // public abstract boolean isInRangeY(int y);
     public boolean isInRangeX(int x){
         boolean isInRange;
-        int maxX = Commons.blockSize + this.getX()*Commons.blockSize;
+        int maxX = this.getX()*Commons.blockSize + Commons.blockSize;
         int minX = getX()*Commons.blockSize;
-        if(x<maxX && x>=minX)
+
+        if(x<maxX && x>=minX) {
             isInRange = true;
+            System.out.println("zakres w x:\t"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+ Game.getGame().getPlayer().getY());
+        }
         else
             isInRange = false;
 
@@ -27,13 +32,34 @@ public abstract class Block
     }
     public boolean isInRangeY(int y){
         boolean isInRange;
-        int maxY = Commons.blockSize*2 + getY()*Commons.blockSize;
-        int minY = getY()*Commons.blockSize+ Commons.blockSize;
-        if(y<maxY && y>=minY)
+        int maxY = (getY()-2)*Commons.blockSize;
+        int minY = (getY()-2)*Commons.blockSize - Commons.blockSize;
+        //int maxY = ///Commons.blockSize*2 + getY()*Commons.blockSize;
+        //int minY = getY()*Commons.blockSize+ Commons.blockSize;
+        if(y<maxY && y>=minY) {
+            //if(y>=100)
             isInRange = true;
+            System.out.println("zakres w y:\t"+minY+"\t"+maxY+"\t"+y +"\t"+getY()+"\t");
+        }
         else
             isInRange = false;
-        //System.out.println(minY+"      "+maxY+"      "+y );
+        //System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"\t");
+        return isInRange;
+    }
+
+    public boolean isInRange(int x, int y){
+        boolean isInRange;
+        int maxX = this.getX()*Commons.blockSize + Commons.blockSize;
+        int minX = getX()*Commons.blockSize;
+        int maxY = (getY()-2)*Commons.blockSize;
+        int minY = (getY()-2)*Commons.blockSize - Commons.blockSize;
+
+        if(x<maxX && x>=minX && y<maxY && y>=minY)
+            isInRange = true;
+        else
+        isInRange = false;
+
+
         return isInRange;
     }
 }
