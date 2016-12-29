@@ -37,19 +37,30 @@ public class Course {
                 if (rodzajBloku == 0) {
                     currentCourseBlocks.add(new BlockShoulder(x, y));
                     System.out.println("pobocze:\t"+x+"\t"+y);
+                    int maxX = x*Commons.blockSize + Commons.blockSize;
+                    int minX = x*Commons.blockSize;
+                    int maxY = (8-y)*Commons.blockSize + Commons.blockSize;
+                    int minY = (8-y)*Commons.blockSize;
+                    System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
                 }
                 if (rodzajBloku == 1 || rodzajBloku == 7) {
                     currentCourseBlocks.add(new BlockCourse(x, y));
-                    if(rodzajBloku ==7)
-                        System.out.println("gracz:\t"+x+"\t"+y);
-
+                    if(rodzajBloku ==7) {
+                        System.out.println("gracz:\t" + x + "\t" + y);
+                        int maxX = x * Commons.blockSize + Commons.blockSize;
+                        int minX = x * Commons.blockSize;
+                        int maxY = (8-y)*Commons.blockSize + Commons.blockSize;
+                        int minY = (8-y)*Commons.blockSize;
+                        System.out.println("zakres w y:\t" + y + "\t" + y + "\t" + minY + "\t" + maxY + "	" + minX + "\t" + maxX + "\t" + x + "\t" + x + "\t");
+                    }
                 }
                 if( rodzajBloku == 2){
                     currentCourseBlocks.add(new BlockStone(x,y));
                     int maxX = x*Commons.blockSize + Commons.blockSize;
                     int minX = x*Commons.blockSize;
-                    int maxY = (y-2)*Commons.blockSize;
-                    int minY = (y-2)*Commons.blockSize - Commons.blockSize;
+                    int maxY = (8-y)*Commons.blockSize + Commons.blockSize;
+                    int minY = (8-y)*Commons.blockSize;
+                    System.out.println("kamień:\t"+x+"\t"+y);
                     System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
                 }
 
@@ -61,6 +72,8 @@ public class Course {
                 }
                   i++;
             }
+
+        getRodzajKlocka(4,5);
     }
 
     public Block getBlock(int x, int y){
@@ -70,10 +83,23 @@ public class Course {
             //if(block.isInRangeX(x) && block.isInRangeY(y)) {
             if(block.isInRange(x,y)){
                 wynikowy = block;
+                getRodzajKlocka(block.getX(),block.getY());
                 //System.out.println(block.getY()+"\t"+block.getX()+" klocek");
             }
         }
         return wynikowy;
+    }
+
+    public Class<? extends Block> getRodzajKlocka(int xKlocka, int yKlocka){
+        List<Block> blocks = new ArrayList<>();
+        for(Block block : currentCourseBlocks){
+            if(block.getY()==yKlocka && block.getX()== xKlocka){
+                blocks.add(block);
+                System.out.println(block.getClass());
+            }
+        }
+        System.out.println("ile klocków:\t"+blocks.size());
+        return blocks.get(0).getClass();
     }
 
     /**

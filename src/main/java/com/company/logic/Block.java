@@ -51,12 +51,12 @@ public abstract class Block
         boolean isInRange;
         int maxX = this.getX()*Commons.blockSize + Commons.blockSize;
         int minX = getX()*Commons.blockSize;
-        int maxY = (getY())*Commons.blockSize;
-        int minY = (getY())*Commons.blockSize - Commons.blockSize;
+        int maxY = (8-getY())*Commons.blockSize+ Commons.blockSize;
+        int minY = (8-getY())*Commons.blockSize;
 
         if(x<maxX && x>=minX && y<maxY && y>=minY) {
             isInRange = true;
-            System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t");
+            System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+getClass());
         }
         else
         isInRange = false;
@@ -64,4 +64,5 @@ public abstract class Block
         //System.out.println("zakres w y:\t"+y +"\t"+x +"\t");
         return isInRange;
     }
+
 }
