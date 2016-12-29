@@ -28,6 +28,7 @@ public class Course {
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
         planszaStream = new StringBuffer(planszaStream).reverse().toString();
+        System.out.println("ASDFG"+planszaStream.length());
         int i=0;
         for(int y=-10; y<10; y++)
             for (int x=0; x<10; x++)
@@ -39,10 +40,17 @@ public class Course {
                 }
                 if (rodzajBloku == 1 || rodzajBloku == 7) {
                     currentCourseBlocks.add(new BlockCourse(x, y));
+                    if(rodzajBloku ==7)
+                        System.out.println("gracz:\t"+x+"\t"+y);
 
                 }
                 if( rodzajBloku == 2){
                     currentCourseBlocks.add(new BlockStone(x,y));
+                    int maxX = x*Commons.blockSize + Commons.blockSize;
+                    int minX = x*Commons.blockSize;
+                    int maxY = (y-2)*Commons.blockSize;
+                    int minY = (y-2)*Commons.blockSize - Commons.blockSize;
+                    System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
                 }
 
                 if ( rodzajBloku == 3)
@@ -58,7 +66,7 @@ public class Course {
     public Block getBlock(int x, int y){
         Block wynikowy = null;
         for(Block block : currentCourseBlocks){
-            if(block.getX() == 3 && block.getY() == 6)
+            //if(block.getX() == 3 && block.getY() == 6)
             //if(block.isInRangeX(x) && block.isInRangeY(y)) {
             if(block.isInRange(x,y)){
                 wynikowy = block;

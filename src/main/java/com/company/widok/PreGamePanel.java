@@ -26,8 +26,10 @@ public class PreGamePanel extends JPanel {
 
         previousButton.addActionListener(e -> Game.getGame().setCurrentActivePanel(new MenuPanel()));
         nextButton.addActionListener(e ->{
+            Game.getGame().getPlayer().setNick(nickInput.getText());
+            System.out.println(Game.getGame().getPlayer().getNick());
                                             Game.getGame().setCurrentActivePanel(new MainGameField());
-                                            Game.getGame().getPlayer().setNick(nickInput.getText());
+
                                         });
 
         JPanel main = new JPanel(new SpringLayout());

@@ -29,11 +29,11 @@ public class GameController {
     public void doControlling(){
         if(course.getBlock(player.getX(), player.getY()) != null) {
             //System.out.println(course.getBlock(player.getX(), player.getY()).getClass()+"\t"+player.getY()+"\t"+player.getX());
-            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockShoulder.class || course.getBlock(player.getX(), player.getY()).getClass() == BlockStone.class) {
+            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockStone.class){//) || course.getBlock(player.getX(), player.getY()).getClass() == BlockStone.class) {
 
                 if (player.getNrOfLifes() > 0) {
                     player.setNrOfLifes(player.getNrOfLifes() - 1);
-                    System.out.println(player.getNrOfLifes());
+                    System.out.println("DEATH \t"+player.getNrOfLifes());
                     player.setFirstCoordinates();
                     MainGameField.getInfoBar().disabledHeart(player.getNrOfLifes());
                 } else {
@@ -42,12 +42,11 @@ public class GameController {
                    // JOptionPane.showMessageDialog(frame, "GAME OVER!!!");
                 }
             }
-           if (course.getBlock(player.getX(), player.getY()).getClass() == BlockHeart.class) {
-                player.setNrOfLifes((player.getNrOfLifes() + 1));
-                System.out.println(player.getNrOfLifes());
-                MainGameField.getInfoBar().activateHeart(player.getNrOfLifes());
-            }
-
+           //if (course.getBlock(player.getX(), player.getY()).getClass() == BlockHeart.class) {
+                //player.setNrOfLifes((player.getNrOfLifes() + 1));
+                //System.out.println(player.getNrOfLifes());
+              //  MainGameField.getInfoBar().activateHeart(player.getNrOfLifes());
+            //}
         }
 
     }

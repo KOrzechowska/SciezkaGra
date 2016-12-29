@@ -30,6 +30,10 @@ public class GameToolbar extends JToolBar {
         add(highScoresButton);
         add(newGameButton);
         add(pauseButton);
+        System.out.println("fdf"+Game.getGame().getPlayer().getNick());
+        JTextArea NickArea = new JTextArea("Nick: "+ Game.getGame().getPlayer().getNick());
+        NickArea.setEditable(false);
+        add(NickArea);
 
         ActionListener pauseEvent = new ActionListener() {
             @Override
