@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
  */
 public class Player {
     private int nrOfLifes;
+    private int maxNrOfLifes;
     private int score;
     private int x,y;
     private String nick;
@@ -18,6 +19,7 @@ public class Player {
         //pobieranie informacji z xml
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         nrOfLifes = propertiesReader.getPropertyValueInt("lifes");
+        this.maxNrOfLifes = nrOfLifes;
         setFirstCoordinates();
     }
 
@@ -47,10 +49,20 @@ public class Player {
     {
         this.y++;
     }
+
+    public int getMaxNrOfLifes() {
+        return maxNrOfLifes;
+    }
+
+    public void setMaxNrOfLifes(int maxNrOfLifes) {
+        this.maxNrOfLifes = maxNrOfLifes;
+    }
+
     /**
      * funkcja zwarvająca wybrany pojazd użytkownika
      * @return kod wybranego auta
      */
+
     public int getCarImage() {
         return carImage;
     }

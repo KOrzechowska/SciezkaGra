@@ -28,7 +28,7 @@ public class Course {
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
         planszaStream = new StringBuffer(planszaStream).reverse().toString();
-        System.out.println("ASDFG"+planszaStream.length());
+        //System.out.println("ASDFG"+planszaStream.length());
         int i=0;
         for(int y=-10; y<10; y++)
             for (int x=0; x<10; x++)
@@ -36,22 +36,22 @@ public class Course {
                 int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
                 if (rodzajBloku == 0) {
                     currentCourseBlocks.add(new BlockShoulder(x, y));
-                    System.out.println("pobocze:\t"+x+"\t"+y);
+                    //System.out.println("pobocze:\t"+x+"\t"+y);
                     int maxX = x*Commons.blockSize + Commons.blockSize;
                     int minX = x*Commons.blockSize;
                     int maxY = (8-y)*Commons.blockSize + Commons.blockSize;
                     int minY = (8-y)*Commons.blockSize;
-                    System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
+                    //System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
                 }
                 if (rodzajBloku == 1 || rodzajBloku == 7) {
                     currentCourseBlocks.add(new BlockCourse(x, y));
                     if(rodzajBloku ==7) {
-                        System.out.println("gracz:\t" + x + "\t" + y);
+                        //System.out.println("gracz:\t" + x + "\t" + y);
                         int maxX = x * Commons.blockSize + Commons.blockSize;
                         int minX = x * Commons.blockSize;
                         int maxY = (8-y)*Commons.blockSize + Commons.blockSize;
                         int minY = (8-y)*Commons.blockSize;
-                        System.out.println("zakres w y:\t" + y + "\t" + y + "\t" + minY + "\t" + maxY + "	" + minX + "\t" + maxX + "\t" + x + "\t" + x + "\t");
+                        //System.out.println("zakres w y:\t" + y + "\t" + y + "\t" + minY + "\t" + maxY + "	" + minX + "\t" + maxX + "\t" + x + "\t" + x + "\t");
                     }
                 }
                 if( rodzajBloku == 2){
@@ -60,15 +60,15 @@ public class Course {
                     int minX = x*Commons.blockSize;
                     int maxY = (8-y)*Commons.blockSize + Commons.blockSize;
                     int minY = (8-y)*Commons.blockSize;
-                    System.out.println("kamień:\t"+x+"\t"+y);
-                    System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
+                    //System.out.println("kamień:\t"+x+"\t"+y);
+                    //System.out.println("zakres w y:\t"+y +"\t"+y+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+x+"\t");
                 }
 
                 if ( rodzajBloku == 3)
                     currentCourseBlocks.add(new BlockCoin(x,y));
                 if ( rodzajBloku == 4) {
                     currentCourseBlocks.add(new BlockHeart(x, y));
-                    System.out.println(x+"\t"+y);
+                    //System.out.println(x+"\t"+y);
                 }
                   i++;
             }
@@ -95,10 +95,10 @@ public class Course {
         for(Block block : currentCourseBlocks){
             if(block.getY()==yKlocka && block.getX()== xKlocka){
                 blocks.add(block);
-                System.out.println(block.getClass());
+                //System.out.println(block.getClass());
             }
         }
-        System.out.println("ile klocków:\t"+blocks.size());
+        //System.out.println("ile klocków:\t"+blocks.size());
         return blocks.get(0).getClass();
     }
 

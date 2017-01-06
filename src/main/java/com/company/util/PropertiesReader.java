@@ -74,4 +74,14 @@ public class PropertiesReader {
         String returnValue = getPropertyValue(propertyName);
         return Integer.valueOf(returnValue);
     }
+    public int getPropertyValueInt2(String propertyName, int id) {
+        NodeList nList = doc.getElementsByTagName(propertyName);
+        String output = null;
+        //chodzenie po wszystkich planszach
+        for(int x=0,size= nList.getLength(); x<size; x++) {
+            if(Integer.valueOf(nList.item(x).getAttributes().getNamedItem("id").getNodeValue()) == id)
+                output = nList.item(x).getTextContent();
+        }
+        return Integer.valueOf(output);
+    }
 }

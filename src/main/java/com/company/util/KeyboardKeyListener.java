@@ -36,16 +36,16 @@ public class KeyboardKeyListener extends KeyAdapter {
                 isGamePaused=true;
                 timer.stop();
             }
-        if(key == KeyEvent.VK_LEFT)
-        {
-            player.setX(player.getX()-1);
+         if(isGamePaused == false) {
+             if (key == KeyEvent.VK_LEFT) {
+                 player.setX(player.getX() - 1);
 
-        }
-        if(key == KeyEvent.VK_RIGHT)
-        {
-            player.setX(player.getX()+1);
+             }
+             if (key == KeyEvent.VK_RIGHT) {
+                 player.setX(player.getX() + 1);
 
-        }
+             }
+         }
         if (key == KeyEvent.VK_R)
         {
 

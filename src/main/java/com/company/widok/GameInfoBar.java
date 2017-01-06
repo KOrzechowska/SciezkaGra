@@ -17,6 +17,7 @@ import java.util.List;
 public class GameInfoBar extends JPanel {
     /**lista prezentowanych zyć*/
     private List<JButton> hearts = new ArrayList<>();
+    private JTextArea scoreArea = new JTextArea("Score: "+ Game.getGame().getPlayer().getScore());
 
     /**
      * konstruktor klasy
@@ -24,11 +25,15 @@ public class GameInfoBar extends JPanel {
      */
     public GameInfoBar() {
         super();
+        int k;
         setPreferredSize(new Dimension(Commons.boardWidth,50));
-        for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++)
+        //System.out.println("liczbazyc:"+Game.getGame().getPlayer().getNrOfLifes());
+        for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++){
             addHeart();
+        }
 
-        JTextArea scoreArea = new JTextArea("Score: "+ Game.getGame().getPlayer().getScore());
+        System.out.println("score:"+Game.getGame().getPlayer().getScore());
+        scoreArea.setText("Score: "+Game.getGame().getPlayer().getScore());
         scoreArea.setEditable(false);
         add(scoreArea);
         JTextArea levelNumberArea = new JTextArea("Level: " + Game.getGame().getCourse().getLevelNumber());
@@ -72,5 +77,10 @@ public class GameInfoBar extends JPanel {
         hearts.get(i).setDisabledIcon(hearts.get(i).getIcon());
         validate();
         setVisible(true);
+    }
+
+    public void setScoreArea(){
+        scoreArea.setText("Score: "+Game.getGame().getPlayer().getScore());
+        validate();
     }
 }

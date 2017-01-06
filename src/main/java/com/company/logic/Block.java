@@ -23,7 +23,7 @@ public abstract class Block
 
         if(x<maxX && x>=minX) {
             isInRange = true;
-            System.out.println("zakres w x:\t"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+ Game.getGame().getPlayer().getY());
+            //System.out.println("zakres w x:\t"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+ Game.getGame().getPlayer().getY());
         }
         else
             isInRange = false;
@@ -39,7 +39,7 @@ public abstract class Block
         if(y<maxY && y>=minY) {
             //if(y>=100)
             isInRange = true;
-            System.out.println("zakres w y:\t"+minY+"\t"+maxY+"\t"+y +"\t"+getY()+"\t"+"\t\"+minX+\"\\t\"+maxX+\"\\t\"+x +\"\\t\"+getX()+\"\\t\"+ Game.getGame().getPlayer().getY()");
+            //System.out.println("zakres w y:\t"+minY+"\t"+maxY+"\t"+y +"\t"+getY()+"\t"+"\t\"+minX+\"\\t\"+maxX+\"\\t\"+x +\"\\t\"+getX()+\"\\t\"+ Game.getGame().getPlayer().getY()");
         }
         else
             isInRange = false;
@@ -56,7 +56,7 @@ public abstract class Block
 
         if(x<maxX && x>=minX && y<maxY && y>=minY) {
             isInRange = true;
-            System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+getClass());
+            //System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+getClass());
         }
         else
         isInRange = false;

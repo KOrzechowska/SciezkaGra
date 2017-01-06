@@ -16,6 +16,7 @@ import java.awt.*;
  * zawiera obiekty gracz i ścieżka
  */
 public class Game extends JFrame {
+    public static int difficultyLvl;
     /** instatncja gry - obiekt statyczny*/
     private static Game game = new Game();
     /** gracz*/
@@ -109,5 +110,13 @@ public class Game extends JFrame {
 
     public void setTimer(Timer timer) {
         this.timer = timer;
+    }
+
+    public static int getDifficultyLvl() {
+        return difficultyLvl;
+    }
+
+    public static void setDifficultyLvl(int difficultyLvl) {
+        Game.difficultyLvl = difficultyLvl;
     }
 }

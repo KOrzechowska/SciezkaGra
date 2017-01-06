@@ -6,21 +6,25 @@ import com.company.logic.GameController;
 import com.company.logic.Player;
 import com.company.util.KeyboardKeyListener;
 import com.company.util.PaintUtil;
+import com.company.util.PropertiesReader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import com.company.logic.Player;
 /**
  * klasa dziedziczaca po JPanel
  * generuje pole gry
  */
 public class PlayingField extends JPanel implements ActionListener {
-    private final int DELAY = 50; //#TODO uzależnić od poziomu trudności
+    public int DELAY; //#TODO uzależnić od poziomu trudności
     GameController gameController;
-
     public PlayingField() {
+        //System.out.println("wartosc getSelected:"+PreGamePanel.);
+        PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
+        DELAY = propertiesReader.getPropertyValueInt2("speed", Game.getDifficultyLvl());
+        System.out.println("wartosc index:"+Game.getGame().difficultyLvl);
         setBackground(Color.black);
         setPreferredSize(new Dimension(Commons.boardWidth, Commons.boardWidth));
         Game.getGame().setTimer(new Timer(DELAY, this));
@@ -37,7 +41,7 @@ public class PlayingField extends JPanel implements ActionListener {
         // nowy Player
         if(Game.getGame().isRestartGame()) {
             Game.getGame().getPlayer().setFirstCoordinates();
-            Game.getGame().getPlayer().setNrOfLifes(4);
+            Game.getGame().getPlayer().setNrOfLifes(Game.getGame().getPlayer().getMaxNrOfLifes());
             MainGameField.getInfoBar().activateAllHearts();
         }
     }
@@ -71,4 +75,6 @@ public class PlayingField extends JPanel implements ActionListener {
         game.getPlayer().advancePlayer();
         repaint();
     }
+
+
 }

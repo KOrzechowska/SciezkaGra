@@ -10,12 +10,15 @@ import javax.swing.*;
 public class BlockHeart extends Block {
     private int x,y;
     private ImageIcon blockImage;
+    private boolean isActive;
     public BlockHeart(int x,int y)
     {
+        this.isActive= true;
         this.x=x;
         this.y=y;
         this.blockImage = ImageUtil.getImageIconFromFile("serce1.jpg");
     }
+
 
     public int getX() {
         return x;
@@ -39,6 +42,14 @@ public class BlockHeart extends Block {
 
     public void setBlockImage(ImageIcon blockImage) {
         this.blockImage = blockImage;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     @Override
