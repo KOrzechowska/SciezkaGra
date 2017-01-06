@@ -23,10 +23,10 @@ public class Course {
      * i zamieniająca ją na elementy planszy - obiekty klasy
      * CourseBlock
      */
-    private void getPlansza(){
+    public void getPlansza(){
         /** pobranie planszy z xml*/
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
-        String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
+        String planszaStream = propertiesReader.getPropertyValue("plansza", levelNumber);
         planszaStream = new StringBuffer(planszaStream).reverse().toString();
         //System.out.println("ASDFG"+planszaStream.length());
         int i=0;
@@ -70,6 +70,11 @@ public class Course {
                     currentCourseBlocks.add(new BlockHeart(x, y));
                     //System.out.println(x+"\t"+y);
                 }
+                if ( rodzajBloku == 5) {
+                    currentCourseBlocks.add(new BlockFinish(x, y));
+                    System.out.println("META\t"+x+"\t"+y);
+                }
+
                   i++;
             }
 

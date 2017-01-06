@@ -18,6 +18,7 @@ public class GameInfoBar extends JPanel {
     /**lista prezentowanych zyć*/
     private List<JButton> hearts = new ArrayList<>();
     private JTextArea scoreArea = new JTextArea("Score: "+ Game.getGame().getPlayer().getScore());
+    private JTextArea levelNumberArea = new JTextArea("Level: " + Game.getGame().getCourse().getLevelNumber());
 
     /**
      * konstruktor klasy
@@ -36,7 +37,7 @@ public class GameInfoBar extends JPanel {
         scoreArea.setText("Score: "+Game.getGame().getPlayer().getScore());
         scoreArea.setEditable(false);
         add(scoreArea);
-        JTextArea levelNumberArea = new JTextArea("Level: " + Game.getGame().getCourse().getLevelNumber());
+        levelNumberArea.setText("Level: " + Game.getGame().getCourse().getLevelNumber());
         levelNumberArea.setEditable(false);
         add(levelNumberArea);
     }
@@ -81,6 +82,10 @@ public class GameInfoBar extends JPanel {
 
     public void setScoreArea(){
         scoreArea.setText("Score: "+Game.getGame().getPlayer().getScore());
+        validate();
+    }
+    public void setLevelNumberArea(){
+        levelNumberArea.setText("Level: " + Game.getGame().getCourse().getLevelNumber());
         validate();
     }
 }

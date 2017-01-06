@@ -1,15 +1,9 @@
 package com.company.logic;
 
 import com.company.Game;
-import com.company.widok.GameInfoBar;
 import com.company.widok.MainGameField;
 import com.company.widok.PlayingField;
-import com.company.logic.BlockHeart;
-
-import javax.swing.*;
-import java.sql.Time;
-import java.util.*;
-import java.util.Timer;
+import com.company.logic.Course;
 
 import static com.company.Game.getGame;
 
@@ -60,6 +54,19 @@ public class GameController {
                     player.setScore(player.getScore() + 1);
                     MainGameField.getInfoBar().setScoreArea();
                    // System.out.println("score:"+player.getScore());
+                    blockCoin.setActive(false);
+
+                }
+            }
+            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockFinish.class) {
+                BlockFinish blockCoin = (BlockFinish) course.getBlock(player.getX(), player.getY());
+                if (blockCoin.isActive() == true) {
+                    course.advanceLevel();
+                    player.setScore(player.getScore()+50);
+                    MainGameField.getInfoBar().setScoreArea();
+                    MainGameField.getInfoBar().setLevelNumberArea();
+                    course.getPlansza();
+                    // System.out.println("score:"+player.getScore());
                     blockCoin.setActive(false);
 
                 }
