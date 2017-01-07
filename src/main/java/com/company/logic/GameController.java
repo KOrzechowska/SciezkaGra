@@ -65,6 +65,7 @@ public class GameController {
                     player.setScore(player.getScore()+50);
                     MainGameField.getInfoBar().setScoreArea();
                     MainGameField.getInfoBar().setLevelNumberArea();
+                    player.setFirstCoordinates();
                     course.getPlansza();
                     // System.out.println("score:"+player.getScore());
                     blockCoin.setActive(false);
