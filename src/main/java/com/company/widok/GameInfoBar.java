@@ -28,7 +28,6 @@ public class GameInfoBar extends JPanel {
         super();
         int k;
         setPreferredSize(new Dimension(Commons.boardWidth,50));
-        //System.out.println("liczbazyc:"+Game.getGame().getPlayer().getNrOfLifes());
         for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++){
             addHeart();
         }

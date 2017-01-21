@@ -4,9 +4,6 @@ import com.company.util.ImageUtil;
 
 import javax.swing.*;
 
-/**
- * Created by mrgrinch on 18.12.16.
- */
 public class BlockCourse extends Block
 {
     private int x,y;

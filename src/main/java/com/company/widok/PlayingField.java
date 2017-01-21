@@ -21,7 +21,6 @@ public class PlayingField extends JPanel implements ActionListener {
     public int DELAY; //#TODO uzależnić od poziomu trudności
     GameController gameController;
     public PlayingField() {
-        //System.out.println("wartosc getSelected:"+PreGamePanel.);
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         DELAY = propertiesReader.getPropertyValueInt2("speed", Game.getDifficultyLvl());
         System.out.println("wartosc index:"+Game.getGame().difficultyLvl);
@@ -38,7 +37,6 @@ public class PlayingField extends JPanel implements ActionListener {
     public void initGame() {
         Timer timer = Game.getGame().getTimer();
         timer.start();
-        // nowy Player
         if(Game.getGame().isRestartGame()) {
             Game.getGame().getPlayer().setFirstCoordinates();
             Game.getGame().getPlayer().setNrOfLifes(Game.getGame().getPlayer().getMaxNrOfLifes());

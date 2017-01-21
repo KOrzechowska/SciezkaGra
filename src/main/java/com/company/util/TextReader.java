@@ -8,7 +8,4 @@ import java.util.Scanner;
 
     public class TextReader{
             File file = new File("tekst.txt");
-            //Scanner in = new Scanner(file);
-            //String zdanie = in.nextLine();
-            //System.out.println(zdanie);
     }

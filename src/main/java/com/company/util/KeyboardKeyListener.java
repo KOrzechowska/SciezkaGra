@@ -23,7 +23,6 @@ public class KeyboardKeyListener extends KeyAdapter {
         Game game = Game.getGame();
         //System.out.println("gotgame");
         Player player = game.getPlayer();
-        player.handleKeys(keyEvent);
         if (key == KeyEvent.VK_ESCAPE)
             System.exit(0);
         if(key == KeyEvent.VK_PAUSE)

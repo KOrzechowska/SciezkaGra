@@ -14,8 +14,6 @@ public abstract class Block
     public abstract int getX();
     public abstract int getY();
     public abstract ImageIcon getBlockImage();
-    //public abstract boolean isInRangeX(int x);
-   // public abstract boolean isInRangeY(int y);
     public boolean isInRangeX(int x){
         boolean isInRange;
         int maxX = this.getX()*Commons.blockSize + Commons.blockSize;
@@ -23,7 +21,6 @@ public abstract class Block
 
         if(x<maxX && x>=minX) {
             isInRange = true;
-            //System.out.println("zakres w x:\t"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+ Game.getGame().getPlayer().getY());
         }
         else
             isInRange = false;
@@ -34,16 +31,11 @@ public abstract class Block
         boolean isInRange;
         int maxY = (getY()-2)*Commons.blockSize;
         int minY = (getY()-2)*Commons.blockSize - Commons.blockSize;
-        //int maxY = ///Commons.blockSize*2 + getY()*Commons.blockSize;
-        //int minY = getY()*Commons.blockSize+ Commons.blockSize;
         if(y<maxY && y>=minY) {
-            //if(y>=100)
             isInRange = true;
-            //System.out.println("zakres w y:\t"+minY+"\t"+maxY+"\t"+y +"\t"+getY()+"\t"+"\t\"+minX+\"\\t\"+maxX+\"\\t\"+x +\"\\t\"+getX()+\"\\t\"+ Game.getGame().getPlayer().getY()");
         }
         else
             isInRange = false;
-        //System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"\t");
         return isInRange;
     }
 
@@ -56,12 +48,9 @@ public abstract class Block
 
         if(x<maxX && x>=minX && y<maxY && y>=minY) {
             isInRange = true;
-            //System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t"+getClass());
         }
         else
         isInRange = false;
-      //  System.out.println("zakres w y:\t"+y +"\t"+getY()+"\t"+minY+"\t"+maxY+"	"+minX+"\t"+maxX+"\t"+x +"\t"+getX()+"\t");
-        //System.out.println("zakres w y:\t"+y +"\t"+x +"\t");
         return isInRange;
     }
 

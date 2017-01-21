@@ -155,9 +155,5 @@ public class Player {
         this.score = score;
     }
 
-    public void handleKeys(KeyEvent e)
-    {
-        //System.out.println("malekotki");
-    }
 
 }
