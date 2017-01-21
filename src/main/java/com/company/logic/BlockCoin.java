@@ -1,6 +1,8 @@
 package com.company.logic;
 
+import com.company.Game;
 import com.company.util.ImageUtil;
+import com.company.widok.MainGameField;
 
 import javax.swing.*;
 
@@ -54,5 +56,14 @@ public class BlockCoin extends Block{
     public void advanceBlock()
     {
         this.y++;
+    }
+    public void collide(){
+        if (this.isActive() == true) {
+            Player player = Game.getGame().getPlayer();
+            player.setScore(player.getScore() + 1);
+            MainGameField.getInfoBar().setScoreArea();
+            this.setActive(false);
+
+        }
     }
 }

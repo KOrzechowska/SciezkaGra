@@ -50,5 +50,8 @@ public abstract class Block {
             return false;
         }
     }
+    public void collide(){
+
+    }
 
 }

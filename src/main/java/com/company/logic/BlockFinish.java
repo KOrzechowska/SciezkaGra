@@ -1,6 +1,8 @@
 package com.company.logic;
 
+import com.company.Game;
 import com.company.util.ImageUtil;
+import com.company.widok.MainGameField;
 
 import javax.swing.*;
 
@@ -54,6 +56,20 @@ public class BlockFinish extends Block{
     public void advanceBlock()
     {
         this.y++;
+    }
+    public void collide(){
+        if (this.isActive() == true) {
+            Course course = Game.getGame().getCourse();
+            Player player = Game.getGame().getPlayer();
+            course.advanceLevel();
+            player.setScore(player.getScore() + 50);
+            MainGameField.getInfoBar().setScoreArea();
+            MainGameField.getInfoBar().setLevelNumberArea();
+            player.setFirstCoordinates();
+            course.getPlansza();
+            this.setActive(false);
+
+        }
     }
 }
 

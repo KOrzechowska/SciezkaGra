@@ -1,18 +1,20 @@
 package com.company.logic;
 
+import com.company.Game;
 import com.company.util.ImageUtil;
+import com.company.widok.MainGameField;
 
 import javax.swing.*;
 
 public class BlockHeart extends Block {
-    private int x,y;
+    private int x, y;
     private ImageIcon blockImage;
     private boolean isActive;
-    public BlockHeart(int x,int y)
-    {
-        this.isActive= true;
-        this.x=x;
-        this.y=y;
+
+    public BlockHeart(int x, int y) {
+        this.isActive = true;
+        this.x = x;
+        this.y = y;
         this.blockImage = ImageUtil.getImageIconFromFile("serce1.jpg");
     }
 
@@ -50,8 +52,16 @@ public class BlockHeart extends Block {
     }
 
     @Override
-    public void advanceBlock()
-    {
+    public void advanceBlock() {
         this.y++;
+    }
+
+    public void collide() {
+        Player player = Game.getGame().getPlayer();
+        if (this.isActive() == true && player.getNrOfLifes() < player.getMaxNrOfLifes()) {
+            player.setNrOfLifes(player.getNrOfLifes() + 1);
+            MainGameField.getInfoBar().activateHeart(player.getNrOfLifes() - 1);
+            this.setActive(false);
+        }
     }
 }
