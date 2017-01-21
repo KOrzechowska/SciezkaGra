@@ -3,7 +3,6 @@ package com.company.widok;
 import com.company.Game;
 import com.company.logic.Commons;
 import com.company.logic.GameController;
-import com.company.logic.Player;
 import com.company.util.KeyboardKeyListener;
 import com.company.util.PaintUtil;
 import com.company.util.PropertiesReader;
@@ -12,7 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import com.company.logic.Player;
+
 /**
  * klasa dziedziczaca po JPanel
  * generuje pole gry
@@ -59,7 +58,7 @@ public class PlayingField extends JPanel implements ActionListener {
         super.paintComponent(g);
         PaintUtil.paintCourse(g, this);
         PaintUtil.paintGamer(g, this);
-        gameController.doControlling();
+        gameController.checkCollisions();
         gameController.checkForRestart(this);
         if(Game.getGame().getPlayer().getNrOfLifes()==0) {
             showGameOver(g);

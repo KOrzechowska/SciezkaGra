@@ -15,13 +15,16 @@ public class GameController {
 
     Player player;
     Course course;
+
     public GameController() {
         player = getGame().getPlayer();
         course = getGame().getCourse();
     }
-    public void doControlling(){
-        if(course.getBlock(player.getX(), player.getY()) != null) {
-            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockShoulder.class || course.getBlock(player.getX(), player.getY()).getClass() == BlockStone.class) {
+
+    public void checkCollisions() {
+        Block collisionBlock = course.getBlock(player.getX(), player.getY());
+        if (collisionBlock != null) {
+            if (collisionBlock.getClass() == BlockShoulder.class || collisionBlock.getClass() == BlockStone.class) {
 
                 if (player.getNrOfLifes() > 0) {
                     player.setNrOfLifes(player.getNrOfLifes() - 1);
@@ -32,8 +35,8 @@ public class GameController {
                     System.out.println("GAME OVER");
                 }
             }
-            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockHeart.class) {
-                BlockHeart blockHeart = (BlockHeart) course.getBlock(player.getX(), player.getY());
+            if (collisionBlock.getClass() == BlockHeart.class) {
+                BlockHeart blockHeart = (BlockHeart) collisionBlock;
                 if (blockHeart.isActive() == true && player.getNrOfLifes() < Game.getGame().getPlayer().getMaxNrOfLifes()) {
                     player.setNrOfLifes(player.getNrOfLifes() + 1);
                     MainGameField.getInfoBar().activateHeart(player.getNrOfLifes() - 1);
@@ -42,8 +45,8 @@ public class GameController {
 
             }
 
-            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockCoin.class) {
-                BlockCoin blockCoin = (BlockCoin) course.getBlock(player.getX(), player.getY());
+            if (collisionBlock.getClass() == BlockCoin.class) {
+                BlockCoin blockCoin = (BlockCoin) collisionBlock;
                 if (blockCoin.isActive() == true) {
                     player.setScore(player.getScore() + 1);
                     MainGameField.getInfoBar().setScoreArea();
@@ -51,11 +54,11 @@ public class GameController {
 
                 }
             }
-            if (course.getBlock(player.getX(), player.getY()).getClass() == BlockFinish.class) {
-                BlockFinish blockCoin = (BlockFinish) course.getBlock(player.getX(), player.getY());
+            if (collisionBlock.getClass() == BlockFinish.class) {
+                BlockFinish blockCoin = (BlockFinish) collisionBlock;
                 if (blockCoin.isActive() == true) {
                     course.advanceLevel();
-                    player.setScore(player.getScore()+50);
+                    player.setScore(player.getScore() + 50);
                     MainGameField.getInfoBar().setScoreArea();
                     MainGameField.getInfoBar().setLevelNumberArea();
                     player.setFirstCoordinates();
@@ -68,8 +71,8 @@ public class GameController {
 
     }
 
-    public void checkForRestart(PlayingField playingField){
-        if(Game.getGame().isRestartGame()) {
+    public void checkForRestart(PlayingField playingField) {
+        if (Game.getGame().isRestartGame()) {
             playingField.initGame();
             Game.getGame().setRestartGame(false);
         }
