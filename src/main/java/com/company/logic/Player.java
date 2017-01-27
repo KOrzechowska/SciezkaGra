@@ -1,6 +1,8 @@
 package com.company.logic;
 
+import com.company.Game;
 import com.company.util.PropertiesReader;
+import com.company.util.ServerConector;
 
 import java.awt.event.KeyEvent;
 
@@ -17,8 +19,10 @@ public class Player {
 
     public Player(){
         //pobieranie informacji z xml
-        PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
-        nrOfLifes = propertiesReader.getPropertyValueInt("lifes");
+
+            PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
+            nrOfLifes = propertiesReader.getPropertyValueInt("lifes");
+
         this.maxNrOfLifes = nrOfLifes;
         setFirstCoordinates();
     }

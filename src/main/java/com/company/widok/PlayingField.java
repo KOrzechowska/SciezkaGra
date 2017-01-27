@@ -6,6 +6,7 @@ import com.company.logic.GameController;
 import com.company.util.KeyboardKeyListener;
 import com.company.util.PaintUtil;
 import com.company.util.PropertiesReader;
+import com.company.util.ServerConector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,8 +21,12 @@ public class PlayingField extends JPanel implements ActionListener {
     public int DELAY; //#TODO uzależnić od poziomu trudności
     GameController gameController;
     public PlayingField() {
-        PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
-        DELAY = propertiesReader.getPropertyValueInt2("speed", Game.getDifficultyLvl());
+        if(Game.isOnline){
+            DELAY = ServerConector.speed;
+        }else {
+            PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
+            DELAY = propertiesReader.getPropertyValueInt2("speed", Game.getDifficultyLvl());
+        }
         System.out.println("wartosc index:"+Game.getGame().difficultyLvl);
         setBackground(Color.black);
         setPreferredSize(new Dimension(Commons.boardWidth, Commons.boardWidth));

@@ -5,6 +5,7 @@ import com.company.logic.Course;
 import com.company.logic.Player;
 import com.company.util.KeyboardKeyListener;
 import com.company.widok.MenuPanel;
+import com.company.widok.OnlinePanel;
 
 import javax.swing.*;
 import javax.swing.Timer;
@@ -16,7 +17,7 @@ import java.awt.*;
  * zawiera obiekty gracz i ścieżka
  */
 public class Game extends JFrame {
-    public static int difficultyLvl;
+    public static int difficultyLvl = 1;
     /** instatncja gry - obiekt statyczny*/
     private static Game game = new Game();
     /** gracz*/
@@ -26,7 +27,8 @@ public class Game extends JFrame {
     private Timer timer;
 
     private boolean restartGame = false;
-
+    /**czy jest połączenie online*/
+    public static boolean isOnline = false;
     private Game() {
         super();
         addKeyListener(new KeyboardKeyListener());
@@ -34,7 +36,7 @@ public class Game extends JFrame {
         setMinimumSize(new Dimension(Commons.boardWidth, Commons.boardHeigth));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        add(new MenuPanel());
+        add(new OnlinePanel());
         setVisible(true);
         setFocusable(true);
         pack();

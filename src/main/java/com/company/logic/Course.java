@@ -1,6 +1,9 @@
 package com.company.logic;
 
+import com.company.Game;
+import com.company.util.Client;
 import com.company.util.PropertiesReader;
+import com.company.util.ServerConector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,7 @@ import java.util.List;
 public class Course {
     private int levelNumber = 1;
     private List<Block> currentCourseBlocks;
+    private String planszaStream;
 
     public Course() {
         currentCourseBlocks = new ArrayList<Block>();
@@ -25,8 +29,13 @@ public class Course {
      */
     public void getPlansza() {
         /** pobranie planszy z xml*/
+        if(Game.isOnline){
+            ServerConector.setConfig(ServerConector.ip, ServerConector.port);
+            planszaStream = ServerConector.plansza;
+        }else{
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
-        String planszaStream = propertiesReader.getPropertyValue("plansza", levelNumber);
+         planszaStream = propertiesReader.getPropertyValue("plansza", levelNumber);
+        }
         planszaStream = new StringBuffer(planszaStream).reverse().toString();
         int i = 0;
         for (int y = -10; y < 10; y++)
@@ -121,5 +130,13 @@ public class Course {
         for (Block block : this.currentCourseBlocks) {
             block.advanceBlock();
         }
+    }
+
+    public String getPlanszaStream() {
+        return planszaStream;
+    }
+
+    public void setPlanszaStream(String planszaStream) {
+        this.planszaStream = planszaStream;
     }
 }

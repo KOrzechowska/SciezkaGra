@@ -61,6 +61,13 @@ public class BlockHeart extends Block {
         if (this.isActive() == true && player.getNrOfLifes() < player.getMaxNrOfLifes()) {
             player.setNrOfLifes(player.getNrOfLifes() + 1);
             MainGameField.getInfoBar().activateHeart(player.getNrOfLifes() - 1);
+            this.blockImage = ImageUtil.getImageIconFromFile("droga.jpeg");
+            this.setActive(false);
+        }
+        if(this.isActive() == true && player.getNrOfLifes() == player.getMaxNrOfLifes()){
+            player.setScore(player.getScore() + 2);
+            MainGameField.getInfoBar().setScoreArea();
+            this.blockImage = ImageUtil.getImageIconFromFile("droga.jpeg");
             this.setActive(false);
         }
     }
