@@ -51,20 +51,17 @@ public class Block {
     public boolean isInRange(int x, int y) {
         int maxX = this.getX() * Commons.blockSize + Commons.blockSize;
         int minX = getX() * Commons.blockSize;
-        int maxY = (8 - getY()) * Commons.blockSize + Commons.blockSize;
-        int minY = (8 - getY()) * Commons.blockSize;
+        int maxY = (8 - getY()) * Commons.blockSize;
+        int minY = (8 - getY()) * Commons.blockSize-Commons.blockSize;
 
 
-        if (x < maxX && x >= minX && y < maxY && y >= minY) {
+        if ((x + Commons.blockSize<= maxX && x+Commons.blockSize >= minX)||(x <= maxX && x >= minX)  && y <= maxY && y >= minY) {
             return true;
         } else {
-            if (x + Commons.blockSize < maxX && x + Commons.blockSize >= minX && y < maxY && y >= minY) {
-                return true;
-            } else {
                 return false;
             }
 
-        }
+
     }
 
     public void collide() {
