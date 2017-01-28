@@ -25,7 +25,7 @@ public class GameController {
 
     public void checkCollisions() {
 
-        Block collisionBlock = course.getBlock(player.getX(), player.getY());
+        Block collisionBlock = getBlockUnderCar();
         if (collisionBlock != null) {
             collisionBlock.collide();
         }
@@ -54,5 +54,17 @@ public class GameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Block getBlockUnderCar(){
+        Player player = Game.getGame().getPlayer();
+        Block block = Game.getGame().getCourse().getBlock(player.getX()-50, player.getY());
+        Block block2 = Game.getGame().getCourse().getBlock(player.getX(), player.getY());
+        if(block.getClass()!=BlockCourse.class)
+            return block;
+        else if ( block2.getClass()!=BlockCourse.class)
+            return block2;
+        else return null;
+
     }
 }

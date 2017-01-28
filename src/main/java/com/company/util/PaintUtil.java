@@ -29,7 +29,7 @@ public class PaintUtil {
 
         int skala_w = (int) (Commons.blockSize*Game.getGame().getWidth()/Commons.boardWidth);
         int skala_h = (int) (Commons.blockSize*Game.getGame().getHeight()/Commons.boardHeigth);
-        g.drawImage(gamerIcon.getImage(),(int)(player.getX() * skala_w/Commons.blockSize), 8*skala_h, skala_w, skala_h,imageObserver);
+        g.drawImage(gamerIcon.getImage(),(int)(player.getX() * skala_w/Commons.blockSize), 9*skala_h, skala_w, skala_h,imageObserver);
     }
 
     /**
