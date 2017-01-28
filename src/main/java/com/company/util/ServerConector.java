@@ -1,5 +1,6 @@
 package com.company.util;
 
+import javax.swing.*;
 import java.io.IOException;
 
 /**
@@ -48,9 +49,34 @@ public class ServerConector {
             plansza = Client.setString(ip, port, Protocol.GETPLANSZAKLOCKOW);
             speed = Integer.parseInt(Client.setString(ip, port, Protocol.GETSPEED));
             return 1;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return 2;
+        } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
+            /** nie łączymy online*/
+            if (JOptionPane.showConfirmDialog(null, "Server sent incorrect data!" + "\n"
+                            + "Czy chcesz zagrać offline?", "Error!", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE) == 1)
+            {
+                return 0;}
+            else {
+                return 2;
+            }
+        }
+        catch (IOException e) {
+            if (e.getMessage().equals("server error")) {
+                if (JOptionPane.showConfirmDialog(null, "Server sent error message!" + "\n"
+                                + "Czy chcesz zagrać offline?", "Error!",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == 1)
+                    return 0;
+                else {
+                    return 2;
+                }
+            }
+            if (JOptionPane.showConfirmDialog(null, "Connection with server could not be established!" + "\n"
+                            +"Czy chcesz zagrać offline?", "Error!", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE) == 1)
+                return 0;
+            else {
+                return 2;
+            }
         }
     }
 }

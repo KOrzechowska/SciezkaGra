@@ -99,6 +99,10 @@ public class Course {
         return levelNumber;
     }
 
+    public void setLevelNumber(int levelNumber) {
+        this.levelNumber = levelNumber;
+    }
+
     /**
      * funkcja zwiększająca level o jeden
      * - przejście do kolejnego poziomu gry

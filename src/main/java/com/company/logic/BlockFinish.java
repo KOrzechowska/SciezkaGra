@@ -2,7 +2,9 @@ package com.company.logic;
 
 import com.company.Game;
 import com.company.util.ImageUtil;
+import com.company.util.PropertiesReader;
 import com.company.widok.MainGameField;
+import com.company.widok.PlayingField;
 
 import javax.swing.*;
 
@@ -37,6 +39,7 @@ public class BlockFinish extends Block{
         this.y = y;
     }
 
+
     public boolean isActive() {
         return isActive;
     }
@@ -58,13 +61,18 @@ public class BlockFinish extends Block{
         this.y++;
     }
     public void collide(){
+        Course course = Game.getGame().getCourse();
+        Player player = Game.getGame().getPlayer();
+        PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
         if (this.isActive() == true) {
-            Course course = Game.getGame().getCourse();
-            Player player = Game.getGame().getPlayer();
             course.advanceLevel();
             player.setScore(player.getScore() + 50);
             MainGameField.getInfoBar().setScoreArea();
             MainGameField.getInfoBar().setLevelNumberArea();
+            if (!propertiesReader.isNextValue("plansza", course.getLevelNumber())){
+                player.setWin(true);
+                return;
+            }
             player.setFirstCoordinates();
             course.getPlansza();
             this.setActive(false);

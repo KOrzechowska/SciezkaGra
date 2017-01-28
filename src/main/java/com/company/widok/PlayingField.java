@@ -1,6 +1,7 @@
 package com.company.widok;
 
 import com.company.Game;
+import com.company.logic.BlockFinish;
 import com.company.logic.Commons;
 import com.company.logic.GameController;
 import com.company.util.KeyboardKeyListener;
@@ -44,7 +45,13 @@ public class PlayingField extends JPanel implements ActionListener {
         if(Game.getGame().isRestartGame()) {
             Game.getGame().getPlayer().setFirstCoordinates();
             Game.getGame().getPlayer().setNrOfLifes(Game.getGame().getPlayer().getMaxNrOfLifes());
+            Game.getGame().getPlayer().setScore(0);
+            Game.getGame().getCourse().setLevelNumber(1);
+            Game.getGame().getCourse().getPlansza();
+            MainGameField.getInfoBar().setScoreArea();
+            MainGameField.getInfoBar().setLevelNumberArea();
             MainGameField.getInfoBar().activateAllHearts();
+
         }
     }
 
@@ -58,6 +65,18 @@ public class PlayingField extends JPanel implements ActionListener {
         g2d.setColor(Color.white); g2d.setFont(small);
         g2d.drawString(s, (10*Commons.blockSize - metr.stringWidth(s)) / 2, 10*Commons.blockSize / 2);
     }
+
+    private void showGameWin(Graphics g2d) {
+        g2d.setColor(new Color(50, 251, 18));
+        g2d.fillRect(50, 10*Commons.blockSize / 2 - 30, 10*Commons.blockSize - 100, 50);
+        g2d.setColor(Color.white); g2d.drawRect(50, 10*Commons.blockSize / 2 - 30, 10*Commons.blockSize - 100, 50);
+        String s = " WYGRANA GRACZA: "+ Game.getGame().getPlayer().getNick()+" TWOJ WYNIK TO: "+Game.getGame().getPlayer().getScore();
+        Font small = new Font("Helvetica", Font.BOLD, 14);
+        FontMetrics metr = this.getFontMetrics(small);
+        g2d.setColor(Color.white); g2d.setFont(small);
+        g2d.drawString(s, (10*Commons.blockSize - metr.stringWidth(s)) / 2, 10*Commons.blockSize / 2);
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -67,6 +86,11 @@ public class PlayingField extends JPanel implements ActionListener {
         gameController.checkForRestart(this);
         if(Game.getGame().getPlayer().getNrOfLifes()==0) {
             showGameOver(g);
+            Game.getGame().getTimer().stop();
+        }
+        if(Game.getGame().getPlayer().isWin() == true)
+        {
+            showGameWin(g);
             Game.getGame().getTimer().stop();
         }
     }

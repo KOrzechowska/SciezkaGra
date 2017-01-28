@@ -64,6 +64,15 @@ public class PropertiesReader {
         }
         return output;
     }
+    public boolean isNextValue(String propertyName, int id){
+        NodeList nList = doc.getElementsByTagName(propertyName);
+        boolean output = false;
+        for(int x=0,size= nList.getLength(); x<size; x++) {
+            if(Integer.valueOf(nList.item(x).getAttributes().getNamedItem("id").getNodeValue()) == id)
+                output = true;
+        }
+        return output;
+    }
 
     /**
      * funkcja zwracająca z pliku konfuguracyjnego wartości typu int
