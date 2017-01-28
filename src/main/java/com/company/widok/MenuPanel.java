@@ -34,6 +34,7 @@ public class MenuPanel extends JPanel {
 
         start.addActionListener(e -> Game.getGame().setCurrentActivePanel(new PreGamePanel()));
         reguly.addActionListener(e -> Game.getGame().setCurrentActivePanel(new ZasadyGry()));
+        scianaChwaly.addActionListener(e -> Game.getGame().setCurrentActivePanel(new Top5Panel()));
         opcje.addActionListener(e -> new CarChoicePanel());
         wyjscie.addActionListener(e -> Game.getGame().dispose());
     }

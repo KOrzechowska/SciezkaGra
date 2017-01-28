@@ -62,6 +62,9 @@ public class Course {
                     currentCourseBlocks.add(new BlockFinish(x, y));
                     System.out.println("META\t" + x + "\t" + y);
                 }
+                if (rodzajBloku == 6) {
+                    currentCourseBlocks.add(new BlockPowerUp(x, y));
+                }
 
                 i++;
             }

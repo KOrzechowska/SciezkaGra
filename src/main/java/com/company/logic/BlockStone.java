@@ -51,13 +51,15 @@ public class BlockStone extends Block
     }
     public void collide(){
         Player player = Game.getGame().getPlayer();
-        if (player.getNrOfLifes() > 0) {
-            player.setNrOfLifes(player.getNrOfLifes() - 1);
-            System.out.println("DEATH \t" + player.getNrOfLifes());
-            player.setFirstCoordinates();
-            MainGameField.getInfoBar().disabledHeart(player.getNrOfLifes());
-        } else {
-            System.out.println("GAME OVER");
+        if(!player.isUnBreakable()) {
+            if (player.getNrOfLifes() > 0) {
+                player.setNrOfLifes(player.getNrOfLifes() - 1);
+                System.out.println("DEATH \t" + player.getNrOfLifes());
+                player.setFirstCoordinates();
+                MainGameField.getInfoBar().disabledHeart(player.getNrOfLifes());
+            } else {
+                System.out.println("GAME OVER");
+            }
         }
     }
 }

@@ -18,8 +18,8 @@ public class HighScores {
         oos.close();
     }
 
-    void loadHighScores() throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("highscores");
+    public void loadHighScores() throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("highscores.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
         highScoreList = (ArrayList<HighScore>) ois.readObject();
         ois.close();
@@ -28,12 +28,25 @@ public class HighScores {
     void addToHighScoreList() {
         Player player = Game.getGame().getPlayer();
         HighScore highScore = new HighScore(player.getScore(), player.getNick());
-        highScoreList.add(highScore);
-        Collections.sort(highScoreList, new comparatorHighScore());
+        for (int i = 0; i<5; i++)
+        {
+            if(highScoreList.get(i)!=null){
+                // najwyższy wynik mniejszy od obecnego
+                if(highScoreList.get(i).getScore()<highScore.getScore()){
+                    highScoreList.add(highScore);
+                    Collections.sort(highScoreList, new comparatorHighScore());
+                    highScoreList.remove(highScoreList.size()-1);
+                }
+            }
+        }
     }
 
     HighScore getHighScore(int i) {
         return highScoreList.get(i);
+    }
+
+    public ArrayList<HighScore> getHighScoreList() {
+        return highScoreList;
     }
 
     public class comparatorHighScore implements Comparator<HighScore> {

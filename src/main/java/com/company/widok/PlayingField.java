@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 /**
  * klasa dziedziczaca po JPanel
@@ -20,6 +21,7 @@ import java.awt.event.ActionListener;
  */
 public class PlayingField extends JPanel implements ActionListener {
     public int DELAY; //#TODO uzależnić od poziomu trudności
+    public long elapsedTime = 0L;
     GameController gameController;
     public PlayingField() {
         if(Game.isOnline){
@@ -84,6 +86,13 @@ public class PlayingField extends JPanel implements ActionListener {
         PaintUtil.paintGamer(g, this);
         gameController.checkCollisions();
         gameController.checkForRestart(this);
+        if(Game.getGame().getPlayer().isUnBreakable()){
+            elapsedTime = (new Date()).getTime() - Game.getGame().getPlayer().getStartTime();
+            if ((int)elapsedTime > 6*1000){
+                Game.getGame().getPlayer().setUnBreakable(false);
+                MainGameField.getInfoBar().setUnbreakable();
+            }
+        }
         if(Game.getGame().getPlayer().getNrOfLifes()==0) {
             showGameOver(g);
             Game.getGame().getTimer().stop();
