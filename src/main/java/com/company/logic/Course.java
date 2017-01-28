@@ -29,12 +29,12 @@ public class Course {
      */
     public void getPlansza() {
         /** pobranie planszy z xml*/
-        if(Game.isOnline){
+        if (Game.isOnline) {
             ServerConector.setConfig(ServerConector.ip, ServerConector.port);
             planszaStream = ServerConector.plansza;
-        }else{
-        PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
-         planszaStream = propertiesReader.getPropertyValue("plansza", levelNumber);
+        } else {
+            PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
+            planszaStream = propertiesReader.getPropertyValue("plansza", levelNumber);
         }
         planszaStream = new StringBuffer(planszaStream).reverse().toString();
         int i = 0;
@@ -68,8 +68,6 @@ public class Course {
 
                 i++;
             }
-
-        getRodzajKlocka(4, 5);
     }
 
     public Block getBlock(int x, int y) {

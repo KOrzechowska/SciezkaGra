@@ -22,6 +22,7 @@ public class GameController {
     }
 
     public void checkCollisions() {
+
         Block collisionBlock = course.getBlock(player.getX(), player.getY());
         if (collisionBlock != null) {
             collisionBlock.collide();

@@ -36,7 +36,7 @@ public class Top5Panel extends JPanel {
             highScoresPanel.add(nick);
             highScoresPanel.add(score);
         }
-        SpringUtilities.makeGrid(highScoresPanel,highScores.getHighScoreList().size() , 3, 5, 5, 5, 5);
+        SpringUtilities.makeGrid(highScoresPanel,highScores.getHighScoreList().size(), 3, 5, 5, 5, 5);
 
         add(highScoresPanel);
 

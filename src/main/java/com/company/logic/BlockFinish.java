@@ -7,60 +7,19 @@ import com.company.widok.MainGameField;
 import com.company.widok.PlayingField;
 
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * monety na ścieżce
  */
-public class BlockFinish extends Block{
-    private int x,y;
-    private ImageIcon blockImage;
-    private boolean isActive;
-    public BlockFinish(int x, int y)
-    {
+public class BlockFinish extends Block {
+    public BlockFinish(int x, int y) {
+        super(x, y);
         this.isActive = true;
-        this.x=x;
-        this.y=y;
         this.blockImage = ImageUtil.getImageIconFromFile("meta.jpg");
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public ImageIcon getBlockImage() {
-        return blockImage;
-    }
-
-    public void setBlockImage(ImageIcon blockImage) {
-        this.blockImage = blockImage;
-    }
-    @Override
-    public void advanceBlock()
-    {
-        this.y++;
-    }
-    public void collide(){
+    public void collide() {
         Course course = Game.getGame().getCourse();
         Player player = Game.getGame().getPlayer();
         PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
@@ -69,8 +28,23 @@ public class BlockFinish extends Block{
             player.setScore(player.getScore() + 50);
             MainGameField.getInfoBar().setScoreArea();
             MainGameField.getInfoBar().setLevelNumberArea();
-            if (!propertiesReader.isNextValue("plansza", course.getLevelNumber())){
+            if (!propertiesReader.isNextValue("plansza", course.getLevelNumber())) {
                 player.setWin(true);
+                HighScores hs = new HighScores();
+                try {
+                    hs.loadHighScores();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                hs.addToHighScoreList();
+                try {
+                    hs.saveHighScores();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 return;
             }
             player.setFirstCoordinates();
