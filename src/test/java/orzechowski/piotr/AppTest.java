@@ -30,9 +30,9 @@ public class AppTest {
     @Test
     public void testHighScores() {
         HighScores highScores=new HighScores();
-        highScores.addToHighScoreList("john",343);
+        highScores.addToHighScoreList("john",0);
         assertEquals(highScores.getHighScoreList().get(0).getNick(),"john");
-        assertEquals(highScores.getHighScoreList().get(0).getScore(),new Integer(343));
+        assertEquals(highScores.getHighScoreList().get(0).getScore(),new Integer(0));
         try {
             highScores.saveHighScores();
         } catch (IOException e) {
@@ -47,6 +47,6 @@ public class AppTest {
             e.printStackTrace();
         }
         assertEquals(highScores.getHighScoreList().get(0).getNick(),"john");
-        assertEquals(highScores.getHighScoreList().get(0).getScore(),new Integer(343));
+        assertEquals(highScores.getHighScoreList().get(0).getScore(),new Integer(0));
     }
 }

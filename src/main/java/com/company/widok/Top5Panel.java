@@ -17,18 +17,6 @@ public class Top5Panel extends JPanel {
         JFrame.setDefaultLookAndFeelDecorated(true);
         JTextArea textAreal = new JTextArea("TOP 5 WYNIKÓW", 5, 10);
 
-        HighScores highScores2 = new HighScores();
-        highScores2.addToHighScoreList("john", 343);
-        highScores2.addToHighScoreList("john", 344);
-        highScores2.addToHighScoreList("john", 345);
-        highScores2.addToHighScoreList("john", 340);
-        highScores2.addToHighScoreList("john", 343);
-        try {
-            highScores2.saveHighScores();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         HighScores highScores = new HighScores();
         try {
             highScores.loadHighScores();
@@ -38,8 +26,9 @@ public class Top5Panel extends JPanel {
             e.printStackTrace();
         }
 
+
         JPanel highScoresPanel = new JPanel(new SpringLayout());
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < highScores.getHighScoreList().size(); i++) {
             JLabel nr = new JLabel(i+1+".");
             JLabel nick = new JLabel(highScores.getHighScoreList().get(i).getNick());
             JLabel score = new JLabel(""+highScores.getHighScoreList().get(i).getScore());
@@ -47,9 +36,10 @@ public class Top5Panel extends JPanel {
             highScoresPanel.add(nick);
             highScoresPanel.add(score);
         }
-        SpringUtilities.makeGrid(highScoresPanel, 5, 3, 5, 5, 5, 5);
+        SpringUtilities.makeGrid(highScoresPanel,highScores.getHighScoreList().size() , 3, 5, 5, 5, 5);
 
         add(highScoresPanel);
+
 
         setVisible(true);
 
