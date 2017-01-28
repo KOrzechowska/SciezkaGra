@@ -62,6 +62,7 @@ public class BlockCoin extends Block{
             Player player = Game.getGame().getPlayer();
             player.setScore(player.getScore() + 1);
             MainGameField.getInfoBar().setScoreArea();
+            this.blockImage = ImageUtil.getImageIconFromFile("droga.jpeg");
             this.setActive(false);
 
         }

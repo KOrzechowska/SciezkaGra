@@ -17,6 +17,7 @@ public class Player {
     private int x,y;
     private String nick;
     private int carImage=0;
+    private boolean isWin = false;
     private boolean isUnBreakable = false;
     private Timer timeOfBeingUnbreakable;
     private long startTime;
@@ -64,6 +65,14 @@ public class Player {
 
     public void setMaxNrOfLifes(int maxNrOfLifes) {
         this.maxNrOfLifes = maxNrOfLifes;
+    }
+
+    public boolean isWin() {
+        return isWin;
+    }
+
+    public void setWin(boolean win) {
+        isWin = win;
     }
 
     /**
