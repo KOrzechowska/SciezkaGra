@@ -5,6 +5,8 @@ import com.company.widok.MainGameField;
 import com.company.widok.PlayingField;
 import com.company.logic.Course;
 
+import java.io.IOException;
+
 import static com.company.Game.getGame;
 
 /**
@@ -34,6 +36,23 @@ public class GameController {
         if (Game.getGame().isRestartGame()) {
             playingField.initGame();
             Game.getGame().setRestartGame(false);
+        }
+    }
+
+    public void saveScore(){
+        HighScores highScores = new HighScores();
+        try {
+            highScores.loadHighScores();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        highScores.addToHighScoreList();
+        try {
+            highScores.saveHighScores();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

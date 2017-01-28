@@ -29,7 +29,7 @@ public class PreGamePanel extends JPanel {
 
         previousButton.addActionListener(e -> Game.getGame().setCurrentActivePanel(new MenuPanel()));
         nextButton.addActionListener(e ->{
-            Game.getGame().getPlayer().setNick(nickInput.getText());
+            Game.getGame().getPlayer().setNick(nickInput.getText().isEmpty()?"Gracz":nickInput.getText());
             System.out.println(Game.getGame().getPlayer().getNick());
             checkDifficultyLvl();
                                             Game.getGame().setCurrentActivePanel(new MainGameField());

@@ -1,21 +1,22 @@
 package com.company.widok;
 
+import com.company.Game;
 import com.company.logic.HighScores;
+import com.company.util.ButtonFactory;
 import com.company.util.SpringUtilities;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Top5Panel extends JPanel {
+public class Top5Panel extends JDialog {
 
     public Top5Panel() {
         super();
         JFrame.setDefaultLookAndFeelDecorated(true);
         JTextArea textAreal = new JTextArea("TOP 5 WYNIKÓW", 5, 10);
+
+        JButton previousButton = ButtonFactory.createJButtonWithName("Wróć do menu");
+        previousButton.addActionListener(e -> Game.getGame().setCurrentActivePanel(new MenuPanel()));
 
         HighScores highScores = new HighScores();
         try {
@@ -39,7 +40,7 @@ public class Top5Panel extends JPanel {
         SpringUtilities.makeGrid(highScoresPanel,highScores.getHighScoreList().size(), 3, 5, 5, 5, 5);
 
         add(highScoresPanel);
-
+        add(previousButton);
 
         setVisible(true);
 

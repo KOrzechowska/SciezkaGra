@@ -59,5 +59,12 @@ public class GameToolbar extends JToolBar {
             }
         };
         newGameButton.addActionListener(newGameEvent);
+
+        highScoresButton.addActionListener(e->{
+            JDialog wyniki = new Top5Panel();
+            wyniki.setModal(true);
+            wyniki.setVisible(true);
+            wyniki.pack();
+        });
     }
 }

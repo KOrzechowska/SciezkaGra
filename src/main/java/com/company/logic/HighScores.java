@@ -28,17 +28,22 @@ public class HighScores {
    public void addToHighScoreList() {
         Player player = Game.getGame().getPlayer();
         HighScore highScore = new HighScore(player.getScore(), player.getNick());
-        for (int i = 0; i<5; i++)
+        for (int i = 0; i<highScoreList.size(); i++)
         {
             if(highScoreList.get(i)!=null){
                 // najwyższy wynik mniejszy od obecnego
                 if(highScoreList.get(i).getScore()<highScore.getScore()){
                     highScoreList.add(highScore);
                     Collections.sort(highScoreList, new comparatorHighScore());
+                    if(highScoreList.size()>Commons.nrOfTopScores)
                     highScoreList.remove(highScoreList.size()-1);
                 }
             }
         }
+       if(highScoreList.size()<Commons.nrOfTopScores){
+           highScoreList.add(highScore);
+           Collections.sort(highScoreList, new comparatorHighScore());
+       }
     }
 
     HighScore getHighScore(int i) {

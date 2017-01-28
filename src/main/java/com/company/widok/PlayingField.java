@@ -58,6 +58,7 @@ public class PlayingField extends JPanel implements ActionListener {
     }
 
     private void showGameOver(Graphics g2d) {
+        gameController.saveScore();
         g2d.setColor(new Color(50, 251, 18));
         g2d.fillRect(50, 10*Commons.blockSize / 2 - 30, 10*Commons.blockSize - 100, 50);
         g2d.setColor(Color.white); g2d.drawRect(50, 10*Commons.blockSize / 2 - 30, 10*Commons.blockSize - 100, 50);
@@ -69,6 +70,7 @@ public class PlayingField extends JPanel implements ActionListener {
     }
 
     private void showGameWin(Graphics g2d) {
+        gameController.saveScore();
         g2d.setColor(new Color(50, 251, 18));
         g2d.fillRect(50, 10*Commons.blockSize / 2 - 30, 10*Commons.blockSize - 100, 50);
         g2d.setColor(Color.white); g2d.drawRect(50, 10*Commons.blockSize / 2 - 30, 10*Commons.blockSize - 100, 50);
