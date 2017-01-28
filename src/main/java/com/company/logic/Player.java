@@ -3,7 +3,8 @@ package com.company.logic;
 import com.company.Game;
 import com.company.util.PropertiesReader;
 import com.company.util.ServerConector;
-
+import java.util.Timer;
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 /**
@@ -16,6 +17,9 @@ public class Player {
     private int x,y;
     private String nick;
     private int carImage=0;
+    private boolean isUnBreakable = false;
+    private Timer timeOfBeingUnbreakable;
+    private long startTime;
 
     public Player(){
         //pobieranie informacji z xml
@@ -159,5 +163,51 @@ public class Player {
         this.score = score;
     }
 
+    /**
+     * sprawdzenie czy użytkownik jest odporny na przeszkody - kamienie
+     * @return true - odporny, false - nie
+     */
+    public boolean isUnBreakable() {
+        return isUnBreakable;
+    }
 
+    /**
+     * ustawienie odporności uzytkownikowi
+     * @param unBreakable true - odporny, false - nie
+     */
+    public void setUnBreakable(boolean unBreakable) {
+        isUnBreakable = unBreakable;
+    }
+
+    /**
+     * pobranie timera dla bycie odpornym na zniszenia
+     * @return timer
+     */
+    public Timer getTimeOfBeingUnbreakable() {
+        return timeOfBeingUnbreakable;
+    }
+
+    /**
+     * ustawienie timera
+     * @param timeOfBeingUnbreakable
+     */
+    public void setTimeOfBeingUnbreakable(Timer timeOfBeingUnbreakable) {
+        this.timeOfBeingUnbreakable = timeOfBeingUnbreakable;
+    }
+
+    /**
+     * pobranie czasu startu odmierzania
+     * @return
+     */
+    public long getStartTime() {
+        return startTime;
+    }
+
+    /**
+     * ustawienia startu odmierzania
+     * @param startTime
+     */
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
 }

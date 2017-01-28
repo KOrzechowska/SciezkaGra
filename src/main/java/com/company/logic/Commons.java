@@ -9,5 +9,5 @@ public class Commons {
     /** szerokość okna gry*/
     public static int boardWidth = 500;
     /** wysokość okna gry*/
-    public static int boardHeigth = 600;
+    public static int boardHeigth = 650;
 }

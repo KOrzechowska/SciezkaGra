@@ -19,6 +19,7 @@ public class GameInfoBar extends JPanel {
     private List<JButton> hearts = new ArrayList<>();
     private JTextArea scoreArea = new JTextArea("Score: "+ Game.getGame().getPlayer().getScore());
     private JTextArea levelNumberArea = new JTextArea("Level: " + Game.getGame().getCourse().getLevelNumber());
+    private JTextArea unbreakable = new JTextArea("Niezniszcalność: "+ (Game.getGame().getPlayer().isUnBreakable()?"ON":"OFF"));
 
     /**
      * konstruktor klasy
@@ -27,18 +28,23 @@ public class GameInfoBar extends JPanel {
     public GameInfoBar() {
         super();
         int k;
-        setPreferredSize(new Dimension(Commons.boardWidth,50));
+        setPreferredSize(new Dimension(Commons.boardWidth,80));
         for (int i=0; i<Game.getGame().getPlayer().getNrOfLifes(); i++){
             addHeart();
         }
-
+        JPanel teksty = new JPanel();
+        teksty.setLayout(new BoxLayout(teksty, BoxLayout.PAGE_AXIS));
         System.out.println("score:"+Game.getGame().getPlayer().getScore());
         scoreArea.setText("Score: "+Game.getGame().getPlayer().getScore());
         scoreArea.setEditable(false);
-        add(scoreArea);
+        teksty.add(scoreArea);
         levelNumberArea.setText("Level: " + Game.getGame().getCourse().getLevelNumber());
         levelNumberArea.setEditable(false);
-        add(levelNumberArea);
+        teksty.add(levelNumberArea);
+        unbreakable.setText("Niezniszcalność: "+ (Game.getGame().getPlayer().isUnBreakable()?"ON":"OFF"));
+        unbreakable.setEditable(false);
+        teksty.add(unbreakable);
+        add(teksty);
     }
 
     /**
@@ -51,6 +57,7 @@ public class GameInfoBar extends JPanel {
         add(heartImage);
         hearts.add(heartImage);
     }
+
 
     /**
      * funkcja odejmująca życie na panelu
@@ -85,6 +92,10 @@ public class GameInfoBar extends JPanel {
     }
     public void setLevelNumberArea(){
         levelNumberArea.setText("Level: " + Game.getGame().getCourse().getLevelNumber());
+        validate();
+    }
+    public void setUnbreakable(){
+        unbreakable.setText("Niezniszcalność: "+ (Game.getGame().getPlayer().isUnBreakable()?"ON":"OFF"));
         validate();
     }
 }

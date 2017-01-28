@@ -7,5 +7,5 @@ import java.util.Scanner;
  */
 
     public class TextReader{
-            File file = new File("tekst.txt");
+            File file = new File("highscores.txt");
     }

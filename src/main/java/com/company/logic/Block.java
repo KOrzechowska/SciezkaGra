@@ -44,9 +44,10 @@ public abstract class Block {
         int maxY = (8 - getY()) * Commons.blockSize + Commons.blockSize;
         int minY = (8 - getY()) * Commons.blockSize;
 
-        if (x < maxX && x >= minX && y < maxY && y >= minY) {
+        if (x < maxX && x >= minX && y < maxY && y >= minY ) {
             return true;
-        } else {
+        }
+        else{
             return false;
         }
     }
