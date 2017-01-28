@@ -65,7 +65,6 @@ public class BlockPowerUp extends Block{
             player.setUnBreakable(true);
             player.setStartTime(System.currentTimeMillis());
             player.setScore(player.getScore() + 1);
-            this.blockImage = ImageUtil.getImageIconFromFile("droga.jpeg");
             MainGameField.getInfoBar().setScoreArea();
             MainGameField.getInfoBar().setUnbreakable();
             this.setActive(false);

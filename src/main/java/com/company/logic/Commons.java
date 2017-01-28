@@ -10,4 +10,6 @@ public class Commons {
     public static int boardWidth = 500;
     /** wysokość okna gry*/
     public static int boardHeigth = 650;
+    /** top no of scores **/
+    public static int nrOfTopScores = 5;
 }

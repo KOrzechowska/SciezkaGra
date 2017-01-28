@@ -5,6 +5,7 @@ import com.company.util.ButtonFactory;
 import com.company.util.SpringUtilities;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * klasa dziedzicząca po JPanel
@@ -34,7 +35,15 @@ public class MenuPanel extends JPanel {
 
         start.addActionListener(e -> Game.getGame().setCurrentActivePanel(new PreGamePanel()));
         reguly.addActionListener(e -> Game.getGame().setCurrentActivePanel(new ZasadyGry()));
-        scianaChwaly.addActionListener(e -> Game.getGame().setCurrentActivePanel(new Top5Panel()));
+        scianaChwaly.addActionListener(e -> {
+            JDialog wyniki = new Top5Panel();
+            wyniki.setModal(true);
+            wyniki.setLocationRelativeTo(mainMenuPanel);
+            wyniki.setVisible(true);
+            wyniki.pack();
+
+
+        });
         opcje.addActionListener(e -> new CarChoicePanel());
         wyjscie.addActionListener(e -> Game.getGame().dispose());
     }

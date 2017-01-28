@@ -7,6 +7,7 @@ import com.company.widok.MainGameField;
 import com.company.widok.PlayingField;
 
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * monety na ścieżce
