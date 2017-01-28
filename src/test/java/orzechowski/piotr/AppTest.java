@@ -1,7 +1,10 @@
 package orzechowski.piotr;
 
+import com.company.logic.HighScores;
 import com.company.util.PropertiesReader;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -22,5 +25,28 @@ public class AppTest {
         assertNotNull(pReader.getPropertyValue("plansza",1));
         assertNotNull(pReader.getPropertyValue("plansza",2));
         assertEquals(4,speedInt);
+    }
+
+    @Test
+    public void testHighScores() {
+        HighScores highScores=new HighScores();
+        highScores.addToHighScoreList("john",343);
+        assertEquals(highScores.getHighScoreList().get(0).getNick(),"john");
+        assertEquals(highScores.getHighScoreList().get(0).getScore(),new Integer(343));
+        try {
+            highScores.saveHighScores();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        highScores=new HighScores();
+        try {
+            highScores.loadHighScores();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        assertEquals(highScores.getHighScoreList().get(0).getNick(),"john");
+        assertEquals(highScores.getHighScoreList().get(0).getScore(),new Integer(343));
     }
 }

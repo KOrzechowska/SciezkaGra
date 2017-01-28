@@ -11,7 +11,7 @@ import java.util.Set;
 public class HighScores {
     private ArrayList<HighScore> highScoreList = new ArrayList<>();
 
-    void saveHighScores() throws IOException {
+    public void saveHighScores() throws IOException {
         FileOutputStream fos = new FileOutputStream("highscores");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(highScoreList);
@@ -19,13 +19,13 @@ public class HighScores {
     }
 
     public void loadHighScores() throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("highscores.txt");
+        FileInputStream fis = new FileInputStream("highscores");
         ObjectInputStream ois = new ObjectInputStream(fis);
         highScoreList = (ArrayList<HighScore>) ois.readObject();
         ois.close();
     }
 
-    void addToHighScoreList() {
+   public void addToHighScoreList() {
         Player player = Game.getGame().getPlayer();
         HighScore highScore = new HighScore(player.getScore(), player.getNick());
         for (int i = 0; i<5; i++)
@@ -47,6 +47,12 @@ public class HighScores {
 
     public ArrayList<HighScore> getHighScoreList() {
         return highScoreList;
+    }
+
+    public void addToHighScoreList(String name, int score) {
+        HighScore newHighScoreToAdd = new HighScore(score,name);
+        highScoreList.add(newHighScoreToAdd);
+        Collections.sort(highScoreList, new comparatorHighScore());
     }
 
     public class comparatorHighScore implements Comparator<HighScore> {
