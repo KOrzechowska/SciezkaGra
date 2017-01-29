@@ -17,6 +17,15 @@ public class HighScores {
      */
     private ArrayList<HighScore> highScoreList = new ArrayList<>();
 
+
+    void HighScores(){
+        try {
+            loadHighScores();
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * funkcja zapisujaca liste wynikow do pliku
      * @throws IOException wyjatek sprawdzajacy poprawnosc zapisu

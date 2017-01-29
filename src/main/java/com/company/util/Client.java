@@ -2,6 +2,7 @@ package com.company.util;
 
         import com.company.Game;
 
+        import java.awt.*;
         import java.io.BufferedReader;
         import java.io.IOException;
         import java.io.InputStream;
@@ -159,7 +160,7 @@ public class Client {
         switch (command) {
 
             case Protocol.GETHIGHSCORES: {
-                return getLinesForScores(20, br, socket);
+                return getLinesForScores(10, br, socket);
             }
             default: {
                 socket.close();
