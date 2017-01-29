@@ -38,6 +38,10 @@ public class Top5Panel extends JDialog {
         SpringUtilities.makeGrid(highScoresPanel,highScores.getHighScoreList().size(), 3, 5, 5, 5, 5);
 
         add(highScoresPanel);
+<<<<<<< HEAD
+=======
+        highScoresPanel.add(previousButton);
+>>>>>>> 48ced6d33b4c377df8a5dda167bf3aa1539c87d1
 
         setVisible(true);
 

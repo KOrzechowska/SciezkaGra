@@ -88,6 +88,7 @@ public class PlayingField extends JPanel implements ActionListener {
         PaintUtil.paintGamer(g, this);
         gameController.checkCollisions();
         gameController.checkForRestart(this);
+
         if(Game.getGame().getPlayer().isUnBreakable()){
             elapsedTime = (new Date()).getTime() - Game.getGame().getPlayer().getStartTime();
             if ((int)elapsedTime > 6*1000){

@@ -75,7 +75,7 @@ public class Course {
         for (Block block : currentCourseBlocks) {
             if (block.isInRange(x, y)) {
                 wynikowy = block;
-                getRodzajKlocka(block.getX(), block.getY());
+
             }
         }
         return wynikowy;
