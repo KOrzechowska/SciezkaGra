@@ -1,6 +1,6 @@
 package com.company.util;
 
-import com.company.logic.HighScore;
+import com.company.Game;
 import com.company.logic.HighScores;
 
 import javax.swing.*;
@@ -44,6 +44,27 @@ public class ServerConector {
         this.port = port;
     }
 
+    public static void getHighScoresFromServer()
+    {
+        HighScores highScore = new HighScores();
+        String[] highScores = Client.getHighScores(ip, port);
+        for (int i = 0; i < 5; i++) {
+            int score = Integer.parseInt(highScores[2 * i + 1]);
+            String nick = highScores[2 * i];
+            highScore.addToHighScoreList(nick, score);
+        }
+        try {
+            highScore.saveHighScores();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendHighScoresToServer()
+    {
+        Client.sendScore(Game.getGame().getPlayer().getNick(),Game.getGame().getPlayer().getScore());
+    }
+
     public static int setConfig(String text, String text1) {
         ip = text;
         port = text1;
@@ -51,14 +72,7 @@ public class ServerConector {
             zycia = Client.setInt(ip, port, Protocol.GETZYCIA);
             plansza = Client.setString(ip, port, Protocol.GETPLANSZAKLOCKOW);
             speed = Integer.parseInt(Client.setString(ip, port, Protocol.GETSPEED));
-            HighScores highScore = new HighScores();
-            String[] highScores = Client.getHighScores(ip, port);
-            for (int i = 0; i < 5; i++) {
-                int score = Integer.parseInt(highScores[2 * i + 1]);
-                String nick = highScores[2 * i];
-                highScore.addToHighScoreList(nick, score);
-            }
-            highScore.saveHighScores();
+            getHighScoresFromServer();
             return 1;
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
             /** nie łączymy online*/
