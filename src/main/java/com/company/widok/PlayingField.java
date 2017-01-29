@@ -101,8 +101,11 @@ public class PlayingField extends JPanel implements ActionListener {
         }
         if(Game.getGame().getPlayer().isWin() == true)
         {
+            Game.getGame().getCourse().setLevelNumber(1);
             showGameWin(g);
+            Game.getGame().getPlayer().setWin(false);
             Game.getGame().getTimer().stop();
+
         }
     }
 

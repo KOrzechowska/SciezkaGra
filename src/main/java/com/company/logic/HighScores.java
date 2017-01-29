@@ -37,6 +37,7 @@ public class HighScores {
                     Collections.sort(highScoreList, new comparatorHighScore());
                     if(highScoreList.size()>Commons.nrOfTopScores)
                     highScoreList.remove(highScoreList.size()-1);
+                    break;
                 }
             }
         }

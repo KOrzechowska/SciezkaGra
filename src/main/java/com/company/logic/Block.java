@@ -1,6 +1,8 @@
 package com.company.logic;
 
 
+import com.company.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -49,10 +51,11 @@ public class Block {
     }
 
     public boolean isInRange(int x, int y) {
+        int skala_h = (int) (Commons.blockSize* Game.getGame().getHeight()/Commons.boardHeigth);
         int maxX = this.getX() * Commons.blockSize + Commons.blockSize;
         int minX = getX() * Commons.blockSize;
-        int maxY = (8 - getY()) * Commons.blockSize + Commons.blockSize;
-        int minY = (8 - getY()) * Commons.blockSize;
+        int maxY = (8 - getY()) * skala_h + skala_h;
+        int minY = (8 - getY()) * skala_h;
 
 
         if (x < maxX && x >= minX && y < maxY && y >= minY) {
