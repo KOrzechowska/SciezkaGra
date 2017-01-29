@@ -11,24 +11,38 @@ import java.awt.event.KeyEvent;
  * Player - gracz
  */
 public class Player {
+    /**liczba zyc*/
     private int nrOfLifes;
+    /**maksymalna liczba zyc*/
     private int maxNrOfLifes;
+    /**wynik*/
     private int score;
+    /**wspolrzedne gracza*/
     private int x,y;
+    /**nick*/
     private String nick;
+    /**wyglad gracza*/
     private int carImage=0;
+    /**czy wygral*/
     private boolean isWin = false;
+    /**czy jest niezniszlany*/
     private boolean isUnBreakable = false;
+    /**czas przez jaki jest niezniszalny*/
     private Timer timeOfBeingUnbreakable;
+    /**wystartowanie czasu*/
     private long startTime;
 
+    /**
+     * kostruktor klasy Player
+     */
     public Player(){
         //pobieranie informacji z xml
-
             PropertiesReader propertiesReader = new PropertiesReader("properties.xml");
+        /**zczytanie liczby zyc z pliku*/
             nrOfLifes = propertiesReader.getPropertyValueInt("lifes");
-
+        /**ustawienie maksymalnej liczy zyc*/
         this.maxNrOfLifes = nrOfLifes;
+        /**ustawienie poczatkowych wpolrzednych*/
         setFirstCoordinates();
     }
 
@@ -42,7 +56,10 @@ public class Player {
             String planszaStream = propertiesReader.getPropertyValue("plansza", 1);
             planszaStream = new StringBuffer(planszaStream).reverse().toString();
             int i=0;
-            for(int y=-10; y<10; y++)
+        /**
+         * petla wyszukujaca 7 na planszy ktora oznacza wspolrzedna X w jakiej zacznie gracz
+         */
+        for(int y=-10; y<10; y++)
                 for (int x=0; x<10; x++)
                 {
                     int rodzajBloku = Integer.parseInt(planszaStream.substring(i, i + 1));
@@ -54,23 +71,43 @@ public class Player {
                     i++;
                 }
     }
+
+    /**
+     * funkcja przesowajaca gracza
+     */
     public void advancePlayer()
     {
         this.y++;
     }
 
+    /**
+     * funkcja pobierajaca maksymalna liczbe zyc
+     * @return maksymalna liczbe zyc
+     */
     public int getMaxNrOfLifes() {
         return maxNrOfLifes;
     }
 
+    /**
+     * ustawianie maksymalnej liczby zyc
+     * @param maxNrOfLifes maksymalna liczba zyc
+     */
     public void setMaxNrOfLifes(int maxNrOfLifes) {
         this.maxNrOfLifes = maxNrOfLifes;
     }
 
+    /**
+     * funkcja ktora mowi ze gracz wygrał
+     * @return wygrana
+     */
     public boolean isWin() {
         return isWin;
     }
 
+    /**
+     * funkcja ustawiajaca czy wygralismy
+     * @param win
+     */
     public void setWin(boolean win) {
         isWin = win;
     }

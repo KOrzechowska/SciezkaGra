@@ -49,6 +49,9 @@ public class PreGamePanel extends JPanel {
         //#TODO zrobić listenera na tych polach by zmieniał atrybuty gracza
     }
 
+    /**
+     * funkcja ustawiajaca poziom trudnosci
+     */
     public void checkDifficultyLvl(){
         if (difficultySelection.getSelectedIndex() == 0) {
             Game.setDifficultyLvl(1);

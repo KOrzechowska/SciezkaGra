@@ -6,13 +6,17 @@ import com.company.Game;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ *Klasa po której dziedziczą wszystkie rodzaje Bloków
+ */
 public class Block {
-
+    /**współrzędne bloku*/
     int x, y;
+    //*zmienna opisująca wygląd bloku*/
     ImageIcon blockImage;
+    /**sprawdzanie czy blok jest aktywny*/
     boolean isActive;
-
+    /**konstruktor klasy block*/
     public Block(int x, int y) {
         this.x = x;
         this.y = y;
@@ -49,7 +53,7 @@ public class Block {
     public void setBlockImage(ImageIcon blockImage) {
         this.blockImage = blockImage;
     }
-
+    /**sprawdzanie czy bloki nachodzą na siebie*/
     public boolean isInRange(int x, int y) {
         int skala_h = (int) (Commons.blockSize* Game.getGame().getHeight()/Commons.boardHeigth);
         int maxX = this.getX() * Commons.blockSize + Commons.blockSize;

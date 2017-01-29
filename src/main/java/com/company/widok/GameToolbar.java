@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
  * tzn pauza, top5 wyników i nowa gra
  */
 public class GameToolbar extends JToolBar {
+    /** sprawdza czy gra jest zatrzymana*/
     Boolean isGamePaused = false;
     private Timer timer;
 
@@ -37,6 +38,7 @@ public class GameToolbar extends JToolBar {
 
         ActionListener pauseEvent = new ActionListener() {
             @Override
+            /**zatrzymanie gry*/
             public void actionPerformed(ActionEvent actionEvent) {
                 timer = Game.getGame().getTimer();
                 if (isGamePaused) {
@@ -50,16 +52,16 @@ public class GameToolbar extends JToolBar {
         };
 
         pauseButton.addActionListener(pauseEvent);
-
         ActionListener newGameEvent = new ActionListener() {
             @Override
+            /**rozpoczecie gry od poczatku*/
             public void actionPerformed(ActionEvent actionEvent) {
                 Game.getGame().setRestartGame(true);
                 Game.getGame().getTimer().start();
             }
         };
         newGameButton.addActionListener(newGameEvent);
-
+        /**wyswietlenie listy najlepszych wynikow*/
         highScoresButton.addActionListener(e->{
             JDialog wyniki = new Top5Panel();
             wyniki.setModal(true);

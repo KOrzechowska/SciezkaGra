@@ -2,7 +2,7 @@ package com.company.util;
 
 /**
  *
- * @author Magda & Kasia
+ *
  * klasa zawierajaca polecenia uzywane w komunikacji z serwerem
  *
  */

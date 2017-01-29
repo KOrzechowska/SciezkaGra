@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.io.IOException;
 
 /**
- * Created by mrgrinch on 22.01.17.
+ *
  */
 public class ServerConector {
     public static String ip;

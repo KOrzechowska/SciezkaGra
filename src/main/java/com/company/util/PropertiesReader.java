@@ -64,6 +64,13 @@ public class PropertiesReader {
         }
         return output;
     }
+
+    /**
+     * sprawdzanie czy jest wiecej pansz
+     * @param propertyName nazwa tag
+     * @param id numer panszy
+     * @return zwraca wartosc true lub false w zaleznosci czy jest wiecej plansz
+     */
     public boolean isNextValue(String propertyName, int id){
         NodeList nList = doc.getElementsByTagName(propertyName);
         boolean output = false;
@@ -83,6 +90,13 @@ public class PropertiesReader {
         String returnValue = getPropertyValue(propertyName);
         return Integer.valueOf(returnValue);
     }
+
+    /**
+     * funkcja pobierajaca int z pliku properties ale w przypadku gry mamy pare opcji
+     * @param propertyName nazwa wartości którą chcemy pobrać czyli tag z xml
+     * @param id nr predkosci
+     * @return
+     */
     public int getPropertyValueInt2(String propertyName, int id) {
         NodeList nList = doc.getElementsByTagName(propertyName);
         String output = null;

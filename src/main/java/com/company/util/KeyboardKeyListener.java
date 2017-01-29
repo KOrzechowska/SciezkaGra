@@ -13,18 +13,25 @@ import java.awt.event.KeyListener;
  * klasa obsługująca przyciski
  */
 public class KeyboardKeyListener extends KeyAdapter {
-    //    #TODO Zaimplementować metody obsługi przycisków
+    /** czy gra jest zapalzowana*/
     Boolean isGamePaused=false;
     private Timer timer;
     @Override
+    /**
+     * funkcja obslugujaca przyciski
+     */
     public void keyPressed(KeyEvent keyEvent) {
+        /**czas gry*/
         timer=Game.getGame().getTimer();
+        /**przycik ktory obsugujemy*/
         int key = keyEvent.getKeyCode();
         Game game = Game.getGame();
         //System.out.println("gotgame");
         Player player = game.getPlayer();
+        /**jezeli wcisniemy esc to wylaczymy gre*/
         if (key == KeyEvent.VK_ESCAPE)
             System.exit(0);
+        /**pod przyciskiem pause mamy zatrzymanie gry*/
         if(key == KeyEvent.VK_PAUSE)
             if (isGamePaused)
             {
@@ -45,6 +52,7 @@ public class KeyboardKeyListener extends KeyAdapter {
 
              }
          }
+         /**pod przyciskiem R mamy restart*/
         if (key == KeyEvent.VK_R)
         {
 

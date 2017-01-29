@@ -72,7 +72,7 @@ public class Client {
     }
     /**
      * wyslanie swojego wyniku
-     * @param name-imie gracza
+     * @param name-nick gracza
      * @param score-uzyskany wynik
      */
     public static void sendScore(String name, int score) {

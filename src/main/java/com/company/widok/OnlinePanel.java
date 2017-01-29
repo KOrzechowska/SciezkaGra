@@ -10,10 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by mrgrinch on 22.01.17.
+ * klasa dziedziczaca po JPanel
+ * jest to okno poczatkowe w ktorym decydujemy czy gramy online czy offline
  */
 public class OnlinePanel extends JPanel {
-
+    /**
+     * konstruktos klasy OblinePanel
+     */
     public OnlinePanel(){
         JPanel all = new JPanel();
         JPanel north = new JPanel();
@@ -48,11 +51,11 @@ public class OnlinePanel extends JPanel {
         ServerConector.setDefaultIp();
         ServerConector.setDefaultPort();
         final JTextField ip = new JTextField(ServerConector.ip);  //textowe pole, domyślnie napisane
-        final JTextField port = new JTextField(ServerConector.port); // localhost i 1000 (port)
-        /**guzik start*/
-        final JButton start = new JButton("start");
-        /**guzik exit*/
-        final JButton exit = new JButton("exit");
+        final JTextField port = new JTextField(ServerConector.port); // localhost i 10001 (port)
+        /**guzik  online*/
+        final JButton start = new JButton("online");
+        /**guzik offline*/
+        final JButton exit = new JButton("offline");
         start.setPreferredSize(new Dimension(85, 25));
         exit.setPreferredSize(new Dimension(85, 25));
         ip.setPreferredSize(new Dimension(0, 25));
@@ -118,7 +121,7 @@ public class OnlinePanel extends JPanel {
 
             }
         });
-        /**obsługa guzika exit*/
+        /**obsługa guzika offline*/
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 Game.getGame().setCurrentActivePanel(new MenuPanel());

@@ -19,6 +19,11 @@ public class ImageUtil {
         return null;
     }
 
+    /**
+     * funkcja pobiera obraz
+     * @param imageFileName nazwa pliku ktory ma byc obrazem
+     * @return
+     */
     public static ImageIcon getImageIconFromFile(String imageFileName){
         return new ImageIcon(ImageUtil.class.getClassLoader().getResource(imageFileName));
     }

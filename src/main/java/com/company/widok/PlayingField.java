@@ -20,10 +20,12 @@ import java.util.Date;
  * generuje pole gry
  */
 public class PlayingField extends JPanel implements ActionListener {
-    public int DELAY; //#TODO uzależnić od poziomu trudności
+    /**predkosc z jaka przesowa sie mapa zalezne od poziomu trudnosci*/
+    public int DELAY;
     public long elapsedTime = 0L;
     GameController gameController;
     public PlayingField() {
+        /**sprawdzenie czy gramy online*/
         if(Game.isOnline){
             DELAY = ServerConector.speed;
         }else {

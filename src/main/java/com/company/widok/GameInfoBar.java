@@ -79,6 +79,9 @@ public class GameInfoBar extends JPanel {
         setVisible(true);
     }
 
+    /**
+     * funkcja aktuwujaca wszystkie serca
+     */
     public void activateAllHearts(){
         for(int i = 0; i< Game.getGame().getPlayer().getNrOfLifes(); i++)
         hearts.get(i).setDisabledIcon(hearts.get(i).getIcon());
@@ -86,14 +89,25 @@ public class GameInfoBar extends JPanel {
         setVisible(true);
     }
 
+    /**
+     * funkcja ustawiajaca wynik wyswietlany w panelu
+     */
     public void setScoreArea(){
         scoreArea.setText("Score: "+Game.getGame().getPlayer().getScore());
         validate();
     }
+
+    /**
+     * funkcja ustawiajaca wynik wyswietlany w panelu
+     */
     public void setLevelNumberArea(){
         levelNumberArea.setText("Level: " + Game.getGame().getCourse().getLevelNumber());
         validate();
     }
+
+    /**
+     * funkcja wyswietlajaca w panelu  czy niezniszalnosc jest aktywna czy nie
+     */
     public void setUnbreakable(){
         unbreakable.setText("Niezniszcalność: "+ (Game.getGame().getPlayer().isUnBreakable()?"ON":"OFF"));
         validate();
